@@ -1,20 +1,3 @@
-
-Q001,What goods must travellers declare before arriving in Australia?
-Q002,What should travellers do with food left over from their plane or ship?
-Q003,What steps should travellers follow when they arrive in Australia?
-Q004,Can travellers' bags be checked even if they do not declare any goods?
-Q005,What can happen if a traveller fails to declare biosecurity risk goods?
-Q006,Will travellers be penalised if they declare goods that are not allowed into Australia?
-Q007,What happens to goods that a traveller declares when entering Australia?
-Q008,Do travellers need to be concerned about contaminated hiking boots or outdoor equipment?
-Q009,What should a traveller do if they discover a biosecurity risk after arriving in Australia?
-Q010,Are laptops, phones and cameras considered risks?
-Q011,Do travellers need to declare dairy and egg products when entering Australia?
-Q012,What types of plant material may need to be declared when entering Australia?
-Q013,Do travellers need to declare herbs, spices or herbal teas when entering Australia?
-Q014,What animal products may need to be declared when travelling to Australia?
-Q015,How can travellers check whether goods are allowed into Australia before travelling?
-
 topic_id,Topic,question_id,question
 VS01,Electronic Travel Authority stay length,VS01Q01,How long can an Electronic Travel Authority holder stay during each visit?
 VS02,Frequent Traveller stream stay conditions,VS02Q01,What are the stay conditions for the Frequent Traveller stream?
@@ -28,4 +11,18 @@ VS09,Total student visas granted,VS09Q01,How many student visas were granted in 
 VS10,Higher Education student visas granted,VS10Q01,How many primary Higher Education student visas were granted in 2025-26 to 30 June 2026?
 VS11,Visitor visa holders in Australia,VS11Q01,How many Visitor visa holders were in Australia on 30 June 2026?
 VS12,Student visa holders in Australia,VS12Q01,How many Student visa holders were in Australia on 30 June 2026?
-
+TR01,Goods declaration requirements,TR01Q01,What goods must travellers declare before arriving in Australia?
+TR02,Food from aircraft or ships,TR02Q01,What should travellers do with food left over from their plane or ship?
+TR03,Arrival process,TR03Q01,What steps should travellers follow when they arrive in Australia?
+TR04,Baggage inspection,TR04Q01,Can travellers' bags be checked even if they do not declare any goods?
+TR05,Failure to declare risk goods,TR05Q01,What can happen if a traveller fails to declare biosecurity risk goods?
+TR06,Declaring prohibited goods,TR06Q01,Will travellers be penalised if they declare goods that are not allowed into Australia?
+TR07,Declared goods inspection,TR07Q01,What happens to goods that a traveller declares when entering Australia?
+TR08,Outdoor equipment biosecurity,TR08Q01,Do travellers need to be concerned about contaminated hiking boots or outdoor equipment?
+TR09,Biosecurity risks found after arrival,TR09Q01,What should a traveller do if they discover a biosecurity risk after arriving in Australia?
+TR10,Electronic equipment,TR10Q01,"Are laptops, phones and cameras considered biosecurity risks?"
+TR11,Dairy and egg products,TR11Q01,Do travellers need to declare dairy and egg products when entering Australia?
+TR12,Plant material,TR12Q01,What types of plant material may need to be declared when entering Australia?
+TR13,Herbs spices and teas,TR13Q01,"Do travellers need to declare herbs, spices or herbal teas when entering Australia?"
+TR14,Animal products,TR14Q01,What animal products may need to be declared when travelling to Australia?
+TR15,Checking import conditions,TR15Q01,How can travellers check whether goods are allowed into Australia before travelling?
