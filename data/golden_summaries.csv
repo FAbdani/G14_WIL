@@ -1,0 +1,28 @@
+question_id,summary_id,summary,passage_id
+VS01Q01,VP001,"a. Electronic Travel Authority (ETA) (subclass 601). This visa is designed for ETA eligible passport holders who are outside of Australia and who want to visit Australia for tourism or business visitor purposes. It allows an applicant to stay in Australia for up to 3 months on each visit within a 12 month period from the date of grant, or for the life of the passport if it is less than 12 months. It can be applied for online, through a travel agent, airline or specialistservice provider or at an Australian visa office outside of Australia.",VP001
+VS02Q01,VP002,"Frequent Traveller stream of the Visitor visa (subclass 600) is for applicants who travel frequently to Australia for a short visit for tourism, visiting family or friends or for business purposes. This visa allows a maximum of three months stay on each visit to Australia, to enable travel for up to 10 years from the date of grant, however applicants must not stay in Australia for more than 12 months in any period of 24 months.",VP002
+VS03Q01,VP003,"A total of 5,156,543 visitor visas were granted in 2025-26 to 30 June 2026.",VP003
+VS04Q01,VP004,"A total of 4,726,509 Tourist stream visitor visas were granted in 2025-26 to 30 June 2026.",VP004
+VS05Q01,VP005,"A total of 430,034 Business stream visitor visas were granted in 2025-26 to 30 June 2026.",VP005
+VS06Q01,VP006,"A total of 32,840 Sponsored Family stream visitor visas were granted in 2025-26 to 30 June 2026.",VP006
+VS07Q01,VP007,"A total of 408,385 student visa applications were lodged in 2025-26 to 30 June 2026.",VP007
+VS08Q01,VP008,"A total of 227,899 primary Higher Education student visa applications were lodged in 2025-26 to 30 June 2026.",VP008
+VS09Q01,VP009,"A total of 337,527 student visas were granted in 2025-26 to 30 June 2026.",VP009
+VS10Q01,VP010,"A total of 195,607 primary Higher Education student visas were granted in 2025-26 to 30 June 2026.",VP010
+VS11Q01,VP011,"There were 296,625 Visitor visa holders in Australia on 30 June 2026.",VP011
+VS12Q01,VP012,"There were 528,801 Student visa holders in Australia on 30 June 2026.",VP012
+TR01Q01,TRP001,"Travellers must declare risk goods, including certain food, plant material and animal products.",TRP001
+TR02Q01,TRP002,Travellers should not take food off the plane or ship.,TRP002
+TR03Q01,TRP003,"Travellers should proceed through immigration clearance, collect their baggage and then go to biosecurity inspection with their declaration and declared goods.",TRP003
+TR04Q01,TRP004,"Yes. Bags may be checked by a biosecurity officer, detector dog or X-ray even when no goods have been declared.",TRP004
+TR05Q01,TRP005,"Failure to declare risk goods may result in an infringement notice, civil penalties or criminal prosecution. A traveller's visa may also be cancelled.",TRP005
+TR06Q01,TRP006,Travellers will not be penalised under the Biosecurity Act 2015 if they declare and present all goods.,TRP006
+TR07Q01,TRP007,"Declared goods are inspected by a biosecurity officer. Goods that pass inspection are returned, while other goods may need treatment, export or destruction.",TRP007
+TR08Q01,TRP008,"Yes. Hiking boots and outdoor equipment contaminated with soil, seeds, animal matter or freshwater may present a biosecurity risk.",TRP008
+TR09Q01,TRP009,Travellers who discover a biosecurity risk after arrival should phone 1800 798 636.,TRP009
+TR10Q01,TRP010,"No. Laptops, tablets, phones and cameras are not considered biosecurity risks.",TRP010
+TR11Q01,TRP011,"Certain dairy and egg products must be declared, including cheese, milk, yoghurt and egg products.",TRP011
+TR12Q01,TRP012,"Plant materials that may require declaration include live plants, seeds, bulbs, flowers, wooden items, bark, leaves and straw.",TRP012
+TR13Q01,TRP013,"Yes. Herbs, spices and herbal teas are among the food products travellers need to declare.",TRP013
+TR14Q01,TRP014,"Animal products that may need declaration include eggs, feathers, bones, horns, skins, fur, shells, coral and bee products.",TRP014
+TR15Q01,TRP015,Travellers can check Australian Government bringing-goods guidance and BICON before travelling. Any required import permit must be obtained before the goods are brought to Australia.,TRP015

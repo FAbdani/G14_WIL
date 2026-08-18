@@ -1,0 +1,28 @@
+topic_id,topic,passage_id,passage,relevance_judgment
+VS01,Electronic Travel Authority stay length,VP001,"a. Electronic Travel Authority (ETA) (subclass 601). This visa is designed for ETA eligible passport holders who are outside of Australia and who want to visit Australia for tourism or business visitor purposes. It allows an applicant to stay in Australia for up to 3 months on each visit within a 12 month period from the date of grant, or for the life of the passport if it is less than 12 months. It can be applied for online, through a travel agent, airline or specialistservice provider or at an Australian visa office outside of Australia.",2
+VS02,Frequent Traveller stream stay conditions,VP002,"Frequent Traveller stream of the Visitor visa (subclass 600) is for applicants who travel frequently to Australia for a short visit for tourism, visiting family or friends or for business purposes. This visa allows a maximum of three months stay on each visit to Australia, to enable travel for up to 10 years from the date of grant, however applicants must not stay in Australia for more than 12 months in any period of 24 months.",2
+VS03,Total visitor visas granted,VP003,"Grand Total | 2025-26 to 30 June 2026 | 5,156,543",2
+VS04,Tourist stream visitor visas granted,VP004,"Tourist Total | 2025-26 to 30 June 2026 | 4,726,509",2
+VS05,Business stream visitor visas granted,VP005,"Business Total | 2025-26 to 30 June 2026 | 430,034",2
+VS06,Sponsored Family visitor visas granted,VP006,"Sponsored Family | 2025-26 to 30 June 2026 | 32,840",2
+VS07,Total student visa applications lodged,VP007,"Grand Total | 2025-26 to 30 June 2026 | 408,385",2
+VS08,Higher Education student visa applications lodged,VP008,"Primary Higher Education | 2025-26 to 30 June 2026 | 227,899",2
+VS09,Total student visas granted,VP009,"Grand Total | 2025-26 to 30 June 2026 | 337,527",2
+VS10,Higher Education student visas granted,VP010,"Primary Higher Education | 2025-26 to 30 June 2026 | 195,607",2
+VS11,Visitor visa holders in Australia,VP011,"Visitor visa holders | 30 June 2026 | 296,625",2
+VS12,Student visa holders in Australia,VP012,"Student visa holders | 30 June 2026 | 528,801",2
+TR01,Goods declaration requirements,TRP001,"Complete your declaration. By law, you must declare any risk goods, including certain food, plant material and animal products. This includes goods which are commercially prepared and packaged, home-made, fresh, dried, cooked, uncooked or frozen, or snacks and ingredients for cooking, even in small amounts.",2
+TR02,Food from aircraft or ships,TRP002,Don't take food off the plane or ship.,2
+TR03,Arrival process,TRP003,Proceed through immigration clearance. Collect your baggage. Proceed to biosecurity inspection and present your declaration and the goods you are declaring to the biosecurity officer.,2
+TR04,Baggage inspection,TRP004,"Your bags may be checked by a biosecurity officer, a detector dog or X-ray, even if you don't declare any goods.",2
+TR05,Failure to declare risk goods,TRP005,"If you provide false or misleading information to a biosecurity officer or on your declaration, or if you fail to answer questions about the goods or comply with directions given by a biosecurity officer, you may be given an infringement notice, subject to civil penalty proceedings, and/or prosecuted for a criminal offence. Your visa may also be cancelled.",2
+TR06,Declaring prohibited goods,TRP006,"You will not be penalised under the Biosecurity Act 2015 if you declare and present all goods, even if they are not allowed into Australia.",2
+TR07,Declared goods inspection,TRP007,"A biosecurity officer will inspect your presented goods and may ask for more information or documentation. If the goods are permitted and pass inspection they will be returned to you. If the goods do not pass inspection, you may have to pay to have the goods treated, exported from Australia or destroyed.",2
+TR08,Outdoor equipment biosecurity,TRP008,"Outdoor, camping and sports equipment and footwear includes hiking boots, fishing equipment and anything that could be contaminated with soil, seeds, animal or faecal matter, or freshwater.",2
+TR09,Biosecurity risks found after arrival,TRP009,"If you find live animals, insects, soil, plant material or other risk items when unpacking, phone 1800 798 636. You won't be penalised.",2
+TR10,Electronic equipment,TRP010,"The following goods are not a biosecurity risk: electronic equipment (including laptops, tablets, phones and cameras).",2
+TR11,Dairy and egg products,TRP011,"Dairy and egg products include infant formula, cheese, milk and yoghurt, whole, dry and powdered eggs, mayonnaise, noodles and pasta.",2
+TR12,Plant material,TRP012,"Plant material includes live plants, seeds, bulbs and cuttings, fresh and dried flowers, crafts and ornaments, wooden items, bark, leaves and straw.",2
+TR13,Herbs spices and teas,TRP013,"Food includes raw and cooked food and ingredients, rice, home-cooked or commercially packaged meals, honey, herbs and spices, including herbal teas and medicines, snacks, sandwiches, wraps, rolls and burgers.",2
+TR14,Animal products,TRP014,"Live animals and animal products include eggs and nests, feathers, bones, horns, skins, animal fur and hair, stuffed animals and birds, shells and coral, beeswax and other bee products.",2
+TR15,Checking import conditions,TRP015,"Visit agriculture.gov.au/bringing-goods. For specific import conditions or documentation requirements, visit the Biosecurity Import Conditions system (BICON). If you need an import permit, you must apply and receive it before you bring the goods to Australia.",2
