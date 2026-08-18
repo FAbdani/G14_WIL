@@ -1,15 +1,12 @@
 from pathlib import Path
 import pandas as pd
-import shutil
 
 
 # ============================================================
 # FILE PATHS
 # ============================================================
 
-# data.py is located inside G14_WIL/data/
-# Therefore all of these files are in the same folder.
-
+# data.py is inside G14_WIL/data/
 DATA_FOLDER = Path(__file__).parent
 
 TOPICS_FILE = DATA_FOLDER / "topics.csv"
@@ -20,14 +17,14 @@ QRELS_FILE = DATA_FOLDER / "qrels.txt"
 
 
 # ============================================================
-# TRAVEL / BIOSECURITY TEST DATA
+# RICHY'S AUSTRALIAN TRAVEL / BIOSECURITY DATA
 # ============================================================
 
 travel_data = [
 
     {
         "topic_id": "TR01",
-        "topic": "Goods declaration requirements",
+        "Topic": "Goods declaration requirements",
         "question_id": "TR01Q01",
         "question":
             "What goods must travellers declare before arriving in Australia?",
@@ -45,7 +42,7 @@ travel_data = [
 
     {
         "topic_id": "TR02",
-        "topic": "Food from aircraft or ships",
+        "Topic": "Food from aircraft or ships",
         "question_id": "TR02Q01",
         "question":
             "What should travellers do with food left over from their plane or ship?",
@@ -58,7 +55,7 @@ travel_data = [
 
     {
         "topic_id": "TR03",
-        "topic": "Arrival process",
+        "Topic": "Arrival process",
         "question_id": "TR03Q01",
         "question":
             "What steps should travellers follow when they arrive in Australia?",
@@ -69,13 +66,13 @@ travel_data = [
             "and the goods you are declaring to the biosecurity officer.",
         "summary":
             "Travellers should proceed through immigration clearance, collect "
-            "their baggage, and then go to biosecurity inspection with their "
+            "their baggage, then proceed to biosecurity inspection with their "
             "declaration and declared goods."
     },
 
     {
         "topic_id": "TR04",
-        "topic": "Baggage inspection",
+        "Topic": "Baggage inspection",
         "question_id": "TR04Q01",
         "question":
             "Can travellers' bags be checked even if they do not declare any goods?",
@@ -85,32 +82,30 @@ travel_data = [
             "or X-ray, even if you don't declare any goods.",
         "summary":
             "Yes. Bags may be checked by a biosecurity officer, detector dog "
-            "or X-ray even when no goods have been declared."
+            "or X-ray even if no goods are declared."
     },
 
     {
         "topic_id": "TR05",
-        "topic": "Failure to declare risk goods",
+        "Topic": "Failure to declare risk goods",
         "question_id": "TR05Q01",
         "question":
             "What can happen if a traveller fails to declare biosecurity risk goods?",
         "passage_id": "TRP005",
         "passage":
-            "If you provide false or misleading information to a biosecurity "
-            "officer or on your declaration, or if you fail to answer questions "
-            "about the goods or comply with directions given by a biosecurity "
-            "officer, you may be given an infringement notice, subject to civil "
-            "penalty proceedings, and/or prosecuted for a criminal offence. "
-            "Your visa may also be cancelled.",
+            "If you provide false or misleading information to a biosecurity officer "
+            "or on your declaration, or if you fail to answer questions about the goods "
+            "or comply with directions given by a biosecurity officer, you may be "
+            "given an infringement notice, subject to civil penalty proceedings, "
+            "and/or prosecuted for a criminal offence. Your visa may also be cancelled.",
         "summary":
-            "Failure to declare risk goods may result in an infringement notice, "
-            "civil penalties or criminal prosecution. A traveller's visa may "
-            "also be cancelled."
+            "A traveller may receive an infringement notice, face civil penalty "
+            "proceedings or criminal prosecution. Their visa may also be cancelled."
     },
 
     {
         "topic_id": "TR06",
-        "topic": "Declaring prohibited goods",
+        "Topic": "Declaring prohibited goods",
         "question_id": "TR06Q01",
         "question":
             "Will travellers be penalised if they declare goods that are not "
@@ -126,26 +121,25 @@ travel_data = [
 
     {
         "topic_id": "TR07",
-        "topic": "Declared goods inspection",
+        "Topic": "Declared goods inspection",
         "question_id": "TR07Q01",
         "question":
             "What happens to goods that a traveller declares when entering Australia?",
         "passage_id": "TRP007",
         "passage":
-            "A biosecurity officer will inspect your presented goods and may "
-            "ask for more information or documentation. If the goods are permitted "
-            "and pass inspection they will be returned to you. If the goods do "
-            "not pass inspection, you may have to pay to have the goods treated, "
-            "exported from Australia or destroyed.",
+            "A biosecurity officer will inspect your presented goods and may ask "
+            "for more information or documentation. If the goods are permitted and "
+            "pass inspection they will be returned to you. If the goods do not pass "
+            "inspection, you may have to pay to have the goods treated, exported "
+            "from Australia or destroyed.",
         "summary":
-            "Declared goods are inspected by a biosecurity officer. Goods that "
-            "pass inspection are returned, while other goods may need treatment, "
-            "export or destruction."
+            "Declared goods are inspected. Goods that pass inspection are returned, "
+            "while goods that fail may need to be treated, exported or destroyed."
     },
 
     {
         "topic_id": "TR08",
-        "topic": "Outdoor equipment biosecurity",
+        "Topic": "Outdoor equipment biosecurity",
         "question_id": "TR08Q01",
         "question":
             "Do travellers need to be concerned about contaminated hiking boots "
@@ -153,16 +147,16 @@ travel_data = [
         "passage_id": "TRP008",
         "passage":
             "Outdoor, camping and sports equipment and footwear includes hiking "
-            "boots, fishing equipment and anything that could be contaminated "
-            "with soil, seeds, animal or faecal matter, or freshwater.",
+            "boots, fishing equipment and anything that could be contaminated with "
+            "soil, seeds, animal or faecal matter, or freshwater.",
         "summary":
-            "Yes. Hiking boots and outdoor equipment contaminated with soil, "
-            "seeds, animal matter or freshwater may present a biosecurity risk."
+            "Yes. Hiking boots and outdoor equipment contaminated with soil, seeds, "
+            "animal matter or freshwater may present a biosecurity risk."
     },
 
     {
         "topic_id": "TR09",
-        "topic": "Biosecurity risks found after arrival",
+        "Topic": "Biosecurity risks found after arrival",
         "question_id": "TR09Q01",
         "question":
             "What should a traveller do if they discover a biosecurity risk "
@@ -178,7 +172,7 @@ travel_data = [
 
     {
         "topic_id": "TR10",
-        "topic": "Electronic equipment",
+        "Topic": "Electronic equipment",
         "question_id": "TR10Q01",
         "question":
             "Are laptops, phones and cameras considered biosecurity risks?",
@@ -193,14 +187,14 @@ travel_data = [
 
     {
         "topic_id": "TR11",
-        "topic": "Dairy and egg products",
+        "Topic": "Dairy and egg products",
         "question_id": "TR11Q01",
         "question":
             "Do travellers need to declare dairy and egg products when entering Australia?",
         "passage_id": "TRP011",
         "passage":
-            "Dairy and egg products include infant formula, cheese, milk and "
-            "yoghurt, whole, dry and powdered eggs, mayonnaise, noodles and pasta.",
+            "Dairy and egg products include infant formula, cheese, milk and yoghurt, "
+            "whole, dry and powdered eggs, mayonnaise, noodles and pasta.",
         "summary":
             "Certain dairy and egg products must be declared, including cheese, "
             "milk, yoghurt and egg products."
@@ -208,7 +202,7 @@ travel_data = [
 
     {
         "topic_id": "TR12",
-        "topic": "Plant material",
+        "Topic": "Plant material",
         "question_id": "TR12Q01",
         "question":
             "What types of plant material may need to be declared when entering Australia?",
@@ -224,11 +218,11 @@ travel_data = [
 
     {
         "topic_id": "TR13",
-        "topic": "Herbs spices and teas",
+        "Topic": "Herbs spices and teas",
         "question_id": "TR13Q01",
         "question":
-            "Do travellers need to declare herbs, spices or herbal teas when "
-            "entering Australia?",
+            "Do travellers need to declare herbs, spices or herbal teas "
+            "when entering Australia?",
         "passage_id": "TRP013",
         "passage":
             "Food includes raw and cooked food and ingredients, rice, home-cooked "
@@ -241,7 +235,7 @@ travel_data = [
 
     {
         "topic_id": "TR14",
-        "topic": "Animal products",
+        "Topic": "Animal products",
         "question_id": "TR14Q01",
         "question":
             "What animal products may need to be declared when travelling to Australia?",
@@ -257,27 +251,59 @@ travel_data = [
 
     {
         "topic_id": "TR15",
-        "topic": "Checking import conditions",
+        "Topic": "Checking import conditions",
         "question_id": "TR15Q01",
         "question":
             "How can travellers check whether goods are allowed into Australia "
             "before travelling?",
         "passage_id": "TRP015",
         "passage":
-            "Visit agriculture.gov.au/bringing-goods. For specific import "
-            "conditions or documentation requirements, visit the Biosecurity "
-            "Import Conditions system (BICON). If you need an import permit, "
-            "you must apply and receive it before you bring the goods to Australia.",
+            "Visit agriculture.gov.au/bringing-goods. For specific import conditions "
+            "or documentation requirements, visit the Biosecurity Import Conditions "
+            "system (BICON). If you need an import permit, you must apply and receive "
+            "it before you bring the goods to Australia.",
         "summary":
             "Travellers can check Australian Government bringing-goods guidance "
-            "and BICON before travelling. Any required import permit must be "
-            "obtained before the goods are brought to Australia."
+            "and BICON. Required import permits must be obtained before bringing "
+            "the goods to Australia."
     }
 ]
 
 
 # ============================================================
-# CHECK FILES EXIST
+# EXPECTED Walert FILE FORMATS
+# ============================================================
+
+TOPICS_COLUMNS = [
+    "topic_id",
+    "Topic",
+    "question_id",
+    "question"
+]
+
+COLLECTION_COLUMNS = [
+    "passage_id",
+    "passage"
+]
+
+GROUNDTRUTH_COLUMNS = [
+    "topic_id",
+    "topic",
+    "passage_id",
+    "passage",
+    "relevance_judgment"
+]
+
+GOLDEN_COLUMNS = [
+    "question_id",
+    "summary_id",
+    "summary",
+    "passage_id"
+]
+
+
+# ============================================================
+# CHECK REQUIRED FILES
 # ============================================================
 
 required_files = [
@@ -289,312 +315,238 @@ required_files = [
 ]
 
 for file_path in required_files:
+
     if not file_path.exists():
         raise FileNotFoundError(
-            f"Could not find: {file_path}"
+            f"Missing required file: {file_path}"
         )
 
 
 # ============================================================
-# LOAD EXISTING GROUP DATA
+# LOAD CURRENT GROUP DATA
 # ============================================================
 
 print()
-print("Loading existing group data...")
+print("Loading current group datasets...")
 
 topics_df = pd.read_csv(TOPICS_FILE)
 collection_df = pd.read_csv(COLLECTION_FILE)
 groundtruth_df = pd.read_csv(GROUNDTRUTH_FILE)
 golden_df = pd.read_csv(GOLDEN_FILE)
 
-print(f"Existing topics: {len(topics_df)}")
-print(f"Existing passages: {len(collection_df)}")
-print(f"Existing ground-truth rows: {len(groundtruth_df)}")
-print(f"Existing golden summaries: {len(golden_df)}")
-
 
 # ============================================================
-# VERIFY COLUMN STRUCTURE
+# VERIFY DARSHANA / WALERT FORMAT
 # ============================================================
 
-expected_topics = [
-    "topic_id",
-    "Topic",
-    "question_id",
-    "question"
-]
-
-expected_collection = [
-    "passage_id",
-    "passage"
-]
-
-expected_groundtruth = [
-    "topic_id",
-    "topic",
-    "passage_id",
-    "passage",
-    "relevance_judgment"
-]
-
-expected_golden = [
-    "question_id",
-    "summary_id",
-    "summary",
-    "passage_id"
-]
-
-
-if list(topics_df.columns) != expected_topics:
+if list(topics_df.columns) != TOPICS_COLUMNS:
     raise ValueError(
-        f"Unexpected topics.csv columns: "
-        f"{list(topics_df.columns)}"
+        f"topics.csv is not using the expected format.\n"
+        f"Expected: {TOPICS_COLUMNS}\n"
+        f"Found: {list(topics_df.columns)}"
     )
 
-if list(collection_df.columns) != expected_collection:
+if list(collection_df.columns) != COLLECTION_COLUMNS:
     raise ValueError(
-        f"Unexpected collection.csv columns: "
-        f"{list(collection_df.columns)}"
+        f"collection.csv is not using the expected format.\n"
+        f"Expected: {COLLECTION_COLUMNS}\n"
+        f"Found: {list(collection_df.columns)}"
     )
 
-if list(groundtruth_df.columns) != expected_groundtruth:
+if list(groundtruth_df.columns) != GROUNDTRUTH_COLUMNS:
     raise ValueError(
-        f"Unexpected groundtruth.csv columns: "
-        f"{list(groundtruth_df.columns)}"
+        f"groundtruth.csv is not using the expected format.\n"
+        f"Expected: {GROUNDTRUTH_COLUMNS}\n"
+        f"Found: {list(groundtruth_df.columns)}"
     )
 
-if list(golden_df.columns) != expected_golden:
+if list(golden_df.columns) != GOLDEN_COLUMNS:
     raise ValueError(
-        f"Unexpected golden_summaries.csv columns: "
-        f"{list(golden_df.columns)}"
+        f"golden_summaries.csv is not using the expected format.\n"
+        f"Expected: {GOLDEN_COLUMNS}\n"
+        f"Found: {list(golden_df.columns)}"
     )
 
-print("CSV structures verified.")
+print("All CSV files use the required format.")
 
 
 # ============================================================
-# DETERMINE WHAT DATA HAS ALREADY BEEN ADDED
+# REMOVE OLD RICHY TRAVEL RECORDS
 # ============================================================
 
-existing_questions = set(
-    topics_df["question_id"].astype(str)
-)
+# This keeps Darshana's VS records and removes old TR records
+# so our correctly formatted records can be rebuilt.
 
-existing_passages = set(
-    collection_df["passage_id"].astype(str)
-)
-
-existing_groundtruth = set(
-    groundtruth_df["passage_id"].astype(str)
-)
-
-existing_golden_questions = set(
-    golden_df["question_id"].astype(str)
-)
+topics_df = topics_df[
+    ~topics_df["topic_id"]
+    .astype(str)
+    .str.startswith("TR")
+].copy()
 
 
-# ============================================================
-# GET EXISTING RELEVANCE VALUE
-# ============================================================
+collection_df = collection_df[
+    ~collection_df["passage_id"]
+    .astype(str)
+    .str.startswith("TRP")
+].copy()
 
-relevance_values = (
-    groundtruth_df["relevance_judgment"]
-    .dropna()
-)
 
-if len(relevance_values) > 0:
-    relevance_value = relevance_values.iloc[0]
-else:
-    relevance_value = 2
+groundtruth_df = groundtruth_df[
+    ~groundtruth_df["topic_id"]
+    .astype(str)
+    .str.startswith("TR")
+].copy()
 
-print(
-    f"Using relevance judgment: {relevance_value}"
-)
+
+golden_df = golden_df[
+    ~golden_df["question_id"]
+    .astype(str)
+    .str.startswith("TR")
+].copy()
 
 
 # ============================================================
-# BUILD NEW ROWS
+# CREATE CORRECTLY FORMATTED TOPICS
 # ============================================================
 
-new_topics = []
-new_collection = []
-new_groundtruth = []
-new_golden = []
-
+travel_topics = []
 
 for item in travel_data:
 
-    # ---------------- TOPICS ----------------
-
-    if item["question_id"] not in existing_questions:
-
-        new_topics.append(
-            {
-                "topic_id": item["topic_id"],
-                "Topic": item["topic"],
-                "question_id": item["question_id"],
-                "question": item["question"]
-            }
-        )
-
-
-    # ---------------- COLLECTION ----------------
-
-    if item["passage_id"] not in existing_passages:
-
-        new_collection.append(
-            {
-                "passage_id": item["passage_id"],
-                "passage": item["passage"]
-            }
-        )
-
-
-    # ---------------- GROUNDTRUTH ----------------
-
-    if item["passage_id"] not in existing_groundtruth:
-
-        new_groundtruth.append(
-            {
-                "topic_id": item["topic_id"],
-                "topic": item["topic"],
-                "passage_id": item["passage_id"],
-                "passage": item["passage"],
-                "relevance_judgment": relevance_value
-            }
-        )
-
-
-    # ---------------- GOLDEN SUMMARIES ----------------
-
-    if item["question_id"] not in existing_golden_questions:
-
-        new_golden.append(
-            {
-                "question_id": item["question_id"],
-                "summary_id": item["passage_id"],
-                "summary": item["summary"],
-                "passage_id": item["passage_id"]
-            }
-        )
-
-
-# ============================================================
-# CREATE DATAFRAMES
-# ============================================================
-
-new_topics_df = pd.DataFrame(
-    new_topics,
-    columns=expected_topics
-)
-
-new_collection_df = pd.DataFrame(
-    new_collection,
-    columns=expected_collection
-)
-
-new_groundtruth_df = pd.DataFrame(
-    new_groundtruth,
-    columns=expected_groundtruth
-)
-
-new_golden_df = pd.DataFrame(
-    new_golden,
-    columns=expected_golden
-)
-
-
-# ============================================================
-# CREATE BACKUPS
-# ============================================================
-
-def backup_file(file_path):
-
-    backup_path = file_path.with_name(
-        file_path.stem + "_backup" + file_path.suffix
+    travel_topics.append(
+        {
+            "topic_id": item["topic_id"],
+            "Topic": item["Topic"],
+            "question_id": item["question_id"],
+            "question": item["question"]
+        }
     )
 
-    if not backup_path.exists():
 
-        shutil.copy(
-            file_path,
-            backup_path
-        )
-
-        print(
-            f"Backup created: {backup_path.name}"
-        )
-
-
-print()
-print("Creating backups...")
-
-backup_file(TOPICS_FILE)
-backup_file(COLLECTION_FILE)
-backup_file(GROUNDTRUTH_FILE)
-backup_file(GOLDEN_FILE)
-backup_file(QRELS_FILE)
+travel_topics_df = pd.DataFrame(
+    travel_topics,
+    columns=TOPICS_COLUMNS
+)
 
 
 # ============================================================
-# MERGE CSV DATA
+# CREATE CORRECTLY FORMATTED COLLECTION
 # ============================================================
 
-updated_topics = pd.concat(
-    [topics_df, new_topics_df],
+travel_collection = []
+
+for item in travel_data:
+
+    travel_collection.append(
+        {
+            "passage_id": item["passage_id"],
+            "passage": item["passage"]
+        }
+    )
+
+
+travel_collection_df = pd.DataFrame(
+    travel_collection,
+    columns=COLLECTION_COLUMNS
+)
+
+
+# ============================================================
+# CREATE CORRECTLY FORMATTED GROUNDTRUTH
+# ============================================================
+
+travel_groundtruth = []
+
+for item in travel_data:
+
+    travel_groundtruth.append(
+        {
+            "topic_id": item["topic_id"],
+            "topic": item["Topic"],
+            "passage_id": item["passage_id"],
+            "passage": item["passage"],
+            "relevance_judgment": 2
+        }
+    )
+
+
+travel_groundtruth_df = pd.DataFrame(
+    travel_groundtruth,
+    columns=GROUNDTRUTH_COLUMNS
+)
+
+
+# ============================================================
+# CREATE CORRECTLY FORMATTED GOLDEN SUMMARIES
+# ============================================================
+
+travel_golden = []
+
+for item in travel_data:
+
+    travel_golden.append(
+        {
+            "question_id": item["question_id"],
+            "summary_id": item["passage_id"],
+            "summary": item["summary"],
+            "passage_id": item["passage_id"]
+        }
+    )
+
+
+travel_golden_df = pd.DataFrame(
+    travel_golden,
+    columns=GOLDEN_COLUMNS
+)
+
+
+# ============================================================
+# MERGE DARSHANA DATA + RICHY DATA
+# ============================================================
+
+topics_final = pd.concat(
+    [
+        topics_df,
+        travel_topics_df
+    ],
     ignore_index=True
 )
 
-updated_collection = pd.concat(
-    [collection_df, new_collection_df],
-    ignore_index=True
-)
 
-updated_groundtruth = pd.concat(
-    [groundtruth_df, new_groundtruth_df],
-    ignore_index=True
-)
-
-updated_golden = pd.concat(
-    [golden_df, new_golden_df],
+collection_final = pd.concat(
+    [
+        collection_df,
+        travel_collection_df
+    ],
     ignore_index=True
 )
 
 
-# ============================================================
-# SAVE CSV FILES
-# ============================================================
-
-updated_topics.to_csv(
-    TOPICS_FILE,
-    index=False
+groundtruth_final = pd.concat(
+    [
+        groundtruth_df,
+        travel_groundtruth_df
+    ],
+    ignore_index=True
 )
 
-updated_collection.to_csv(
-    COLLECTION_FILE,
-    index=False
-)
 
-updated_groundtruth.to_csv(
-    GROUNDTRUTH_FILE,
-    index=False
-)
-
-updated_golden.to_csv(
-    GOLDEN_FILE,
-    index=False
+golden_final = pd.concat(
+    [
+        golden_df,
+        travel_golden_df
+    ],
+    ignore_index=True
 )
 
 
 # ============================================================
-# UPDATE QRELS.TXT
+# UPDATE QRELS
 # ============================================================
 
-print()
-print("Updating qrels.txt...")
+# Keep Darshana's existing qrels.
+# Remove any older Richy TR entries first.
 
-
-# Read current qrels
 with open(
     QRELS_FILE,
     "r",
@@ -608,133 +560,214 @@ with open(
     ]
 
 
-existing_qrels_set = set(existing_qrels)
+darshana_qrels = [
+    line
+    for line in existing_qrels
+    if not line.startswith("TR")
+]
 
-new_qrels = []
 
+travel_qrels = []
 
 for item in travel_data:
 
-    qrels_line = (
-        f"{item['question_id']} "
-        f"0 "
-        f"{item['passage_id']} "
-        f"2"
+    travel_qrels.append(
+        f"{item['question_id']} 0 {item['passage_id']} 2"
     )
 
-    if qrels_line not in existing_qrels_set:
-        new_qrels.append(qrels_line)
+
+final_qrels = (
+    darshana_qrels
+    +
+    travel_qrels
+)
 
 
-# Append only new qrels
+# ============================================================
+# SAVE ALL FILES
+# ============================================================
+
+topics_final.to_csv(
+    TOPICS_FILE,
+    index=False
+)
+
+
+collection_final.to_csv(
+    COLLECTION_FILE,
+    index=False
+)
+
+
+groundtruth_final.to_csv(
+    GROUNDTRUTH_FILE,
+    index=False
+)
+
+
+golden_final.to_csv(
+    GOLDEN_FILE,
+    index=False
+)
+
+
 with open(
     QRELS_FILE,
-    "a",
+    "w",
     encoding="utf-8"
 ) as file:
 
-    for row in new_qrels:
-        file.write(row + "\n")
+    for line in final_qrels:
+        file.write(line + "\n")
 
 
 # ============================================================
-# FINAL VALIDATION
+# VALIDATION
 # ============================================================
 
-final_topics = pd.read_csv(TOPICS_FILE)
-final_collection = pd.read_csv(COLLECTION_FILE)
-final_groundtruth = pd.read_csv(GROUNDTRUTH_FILE)
-final_golden = pd.read_csv(GOLDEN_FILE)
+print()
+print("Checking final files...")
 
 
-missing_questions = []
+# Make sure all 15 Richy questions exist
+richy_questions = topics_final[
+    topics_final["topic_id"]
+    .astype(str)
+    .str.startswith("TR")
+]
 
-for item in travel_data:
 
-    if item["question_id"] not in set(
-        final_topics["question_id"].astype(str)
-    ):
-        missing_questions.append(
-            item["question_id"]
+if len(richy_questions) != 15:
+
+    raise ValueError(
+        f"Expected 15 Richy travel questions, "
+        f"but found {len(richy_questions)}."
+    )
+
+
+# Check Richy's question formatting
+for _, row in richy_questions.iterrows():
+
+    if not str(row["question_id"]).startswith("TR"):
+
+        raise ValueError(
+            f"Incorrect question ID: {row['question_id']}"
         )
 
 
-if missing_questions:
+# Make sure topic IDs are unique
+if topics_final["topic_id"].duplicated().any():
+
+    duplicates = topics_final[
+        topics_final["topic_id"].duplicated(
+            keep=False
+        )
+    ]
+
+    print()
+    print("WARNING: Duplicate topic IDs found:")
+    print(
+        duplicates[
+            [
+                "topic_id",
+                "question_id"
+            ]
+        ]
+    )
+
+
+# Make sure question IDs are unique
+if topics_final["question_id"].duplicated().any():
 
     raise ValueError(
-        f"Missing travel questions after merge: "
-        f"{missing_questions}"
+        "Duplicate question IDs were found."
+    )
+
+
+# Make sure passage IDs are unique
+if collection_final["passage_id"].duplicated().any():
+
+    raise ValueError(
+        "Duplicate passage IDs were found."
     )
 
 
 # ============================================================
-# FINISHED
+# DISPLAY FINAL SUMMARY
 # ============================================================
 
+darshana_count = len(
+    topics_final[
+        ~topics_final["topic_id"]
+        .astype(str)
+        .str.startswith("TR")
+    ]
+)
+
+
+richy_count = len(
+    topics_final[
+        topics_final["topic_id"]
+        .astype(str)
+        .str.startswith("TR")
+    ]
+)
+
+
 print()
 print("=" * 60)
-print("TRAVEL RAG DATA MERGE COMPLETE")
+print("DATASET FORMATTING COMPLETE")
 print("=" * 60)
 
 print()
-
 print(
-    f"New topics added: "
-    f"{len(new_topics_df)}"
+    f"Existing / Darshana questions: "
+    f"{darshana_count}"
 )
 
 print(
-    f"New passages added: "
-    f"{len(new_collection_df)}"
+    f"Richy travel questions: "
+    f"{richy_count}"
 )
 
 print(
-    f"New ground-truth rows added: "
-    f"{len(new_groundtruth_df)}"
-)
-
-print(
-    f"New golden summaries added: "
-    f"{len(new_golden_df)}"
-)
-
-print(
-    f"New qrels added: "
-    f"{len(new_qrels)}"
+    f"Total questions: "
+    f"{len(topics_final)}"
 )
 
 print()
-
-print("Current totals:")
 
 print(
     f"topics.csv: "
-    f"{len(final_topics)}"
+    f"{len(topics_final)} rows"
 )
 
 print(
     f"collection.csv: "
-    f"{len(final_collection)}"
+    f"{len(collection_final)} rows"
 )
 
 print(
     f"groundtruth.csv: "
-    f"{len(final_groundtruth)}"
+    f"{len(groundtruth_final)} rows"
 )
 
 print(
     f"golden_summaries.csv: "
-    f"{len(final_golden)}"
+    f"{len(golden_final)} rows"
 )
 
 print(
     f"qrels.txt: "
-    f"{len(existing_qrels) + len(new_qrels)}"
+    f"{len(final_qrels)} rows"
 )
 
 print()
+
+print("Richy's questions now follow:")
 print(
-    "All 15 Australian travel questions are present."
+    "topic_id,Topic,question_id,question"
 )
 
+print()
 print("Done.")

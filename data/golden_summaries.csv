@@ -13,11 +13,11 @@ VS11Q01,VP011,"There were 296,625 Visitor visa holders in Australia on 30 June 2
 VS12Q01,VP012,"There were 528,801 Student visa holders in Australia on 30 June 2026.",VP012
 TR01Q01,TRP001,"Travellers must declare risk goods, including certain food, plant material and animal products.",TRP001
 TR02Q01,TRP002,Travellers should not take food off the plane or ship.,TRP002
-TR03Q01,TRP003,"Travellers should proceed through immigration clearance, collect their baggage and then go to biosecurity inspection with their declaration and declared goods.",TRP003
-TR04Q01,TRP004,"Yes. Bags may be checked by a biosecurity officer, detector dog or X-ray even when no goods have been declared.",TRP004
-TR05Q01,TRP005,"Failure to declare risk goods may result in an infringement notice, civil penalties or criminal prosecution. A traveller's visa may also be cancelled.",TRP005
+TR03Q01,TRP003,"Travellers should proceed through immigration clearance, collect their baggage, then proceed to biosecurity inspection with their declaration and declared goods.",TRP003
+TR04Q01,TRP004,"Yes. Bags may be checked by a biosecurity officer, detector dog or X-ray even if no goods are declared.",TRP004
+TR05Q01,TRP005,"A traveller may receive an infringement notice, face civil penalty proceedings or criminal prosecution. Their visa may also be cancelled.",TRP005
 TR06Q01,TRP006,Travellers will not be penalised under the Biosecurity Act 2015 if they declare and present all goods.,TRP006
-TR07Q01,TRP007,"Declared goods are inspected by a biosecurity officer. Goods that pass inspection are returned, while other goods may need treatment, export or destruction.",TRP007
+TR07Q01,TRP007,"Declared goods are inspected. Goods that pass inspection are returned, while goods that fail may need to be treated, exported or destroyed.",TRP007
 TR08Q01,TRP008,"Yes. Hiking boots and outdoor equipment contaminated with soil, seeds, animal matter or freshwater may present a biosecurity risk.",TRP008
 TR09Q01,TRP009,Travellers who discover a biosecurity risk after arrival should phone 1800 798 636.,TRP009
 TR10Q01,TRP010,"No. Laptops, tablets, phones and cameras are not considered biosecurity risks.",TRP010
@@ -25,4 +25,4 @@ TR11Q01,TRP011,"Certain dairy and egg products must be declared, including chees
 TR12Q01,TRP012,"Plant materials that may require declaration include live plants, seeds, bulbs, flowers, wooden items, bark, leaves and straw.",TRP012
 TR13Q01,TRP013,"Yes. Herbs, spices and herbal teas are among the food products travellers need to declare.",TRP013
 TR14Q01,TRP014,"Animal products that may need declaration include eggs, feathers, bones, horns, skins, fur, shells, coral and bee products.",TRP014
-TR15Q01,TRP015,Travellers can check Australian Government bringing-goods guidance and BICON before travelling. Any required import permit must be obtained before the goods are brought to Australia.,TRP015
+TR15Q01,TRP015,Travellers can check Australian Government bringing-goods guidance and BICON. Required import permits must be obtained before bringing the goods to Australia.,TRP015
