@@ -1,0 +1,5 @@
+**/walert-env/
+**/__pycache__/
+*.pyc
+target/indexes/
+target/embeddings/
