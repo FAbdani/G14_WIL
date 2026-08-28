@@ -104,3 +104,4 @@ weasel==0.3.2
 wheel==0.37.1
 zipp==3.17.0
 zlib-state==0.1.6
+streamlit
