@@ -6,11 +6,13 @@ import ollama
 COLLECTION = "../../data/collection.csv"
 TOPICS = "../../data/topics.csv"
 
+OUTPUT = "../../target/runs/generated_answers.csv"
 INDEX = "../../target/indexes/bm25"
 
 searcher = LuceneSearcher(INDEX)
 
 collection_df = pd.read_csv(COLLECTION)
+topics_df = pd.read_csv(TOPICS)
 
 def get_context_passages(question, top_k = 3):
     """Retrieve the top_k most relevant passages for a question using BM25"""
@@ -29,6 +31,7 @@ def generate_answer(question, context):
     """Generate an answer from Ollama grounded in retrieved passaged"""
     static_prompt = (
         "Generate an answer to the following question based on the retrieved documents below."
+        "Check each document and use only the relevant document(s) to answer"
         "If the retrieved documents are not related to the question, then say: "
         "\"I do not have enough information to answer this question.\""
     )
@@ -59,7 +62,17 @@ def answer_question(question):
     return get_answer(raw_answer)
 
 if __name__ == "__main__":
-    test_question = "What goods must travellers declare before arriving to Australia?"
-    result = answer_question(test_question)
-    print("Question:", test_question)
-    print("Answer:", result)
+    results = []
+    
+    for question_id, question in topics_df[['question_id', 'question']].values:
+        print(f"Processing {question_id}")
+        answer = answer_question(question)
+        results.append({
+            'question_id' : question_id,
+            'question' : question,
+            'generated_answer' : answer
+        })
+        
+    results_df = pd.DataFrame(results)
+    results_df.to_csv(OUTPUT, index = False)
+    print(f"\nDone. {len(results)} answers saved to {OUTPUT}")

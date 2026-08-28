@@ -1,0 +1,83 @@
+question_id,question,generated_answer
+VS01Q01,How long can an Electronic Travel Authority holder stay during each visit?,I do not have enough information to answer this question.
+VS02Q01,What are the stay conditions for the Frequent Traveller stream?,I do not have enough information to answer this question.
+VS03Q01,How many visitor visas were granted in total in 2025-26 to 30 June 2026?,"Based on Document 1, the total number of visitor visas granted in 2025-26 to 30 June 2026 is 5,156,543."
+VS04Q01,How many Tourist stream visitor visas were granted in 2025-26 to 30 June 2026?,"I do not have enough information to answer this question. The retrieved documents provide the total number of tourist stream visitor visas for 2025-26 to 30 June 2026 (4,726,509) and the number of visitor visa holders as of 30 June 2026 (296,625), but they do not specifically address the number of tourist stream visitor visas granted in 2025-26 to 30 June 2026."
+VS05Q01,How many Business stream visitor visas were granted in 2025-26 to 30 June 2026?,I do not have enough information to answer this question. The retrieved documents do not specify the number of Business stream visitor visas granted in 2025-26 to 30 June 2026.
+VS06Q01,How many Sponsored Family stream visitor visas were granted in 2025-26 to 30 June 2026?,I do not have enough information to answer this question.
+VS07Q01,How many student visa applications were lodged in total in 2025-26 to 30 June 2026?,"The number of student visa applications lodged in total in 2025-26 to 30 June 2026 is 5,156,543."
+VS08Q01,How many primary Higher Education student visa applications were lodged in 2025-26 to 30 June 2026?,"I do not have enough information to answer this question. The provided documents only provide information on the number of primary higher education student visa applications and student visa holders, but not the exact number of applications lodged."
+VS09Q01,How many student visas were granted in total in 2025-26 to 30 June 2026?,"According to Document 2, the grand total of student visas granted in 2025-26 to 30 June 2026 is 5,156,543."
+VS10Q01,How many primary Higher Education student visas were granted in 2025-26 to 30 June 2026?,"I do not have enough information to answer this question. The retrieved documents only provide information on the number of Primary Higher Education student visas granted for the same period, not the total number of primary Higher Education student visas granted for the year 2025-26 to 30 June 2026."
+VS11Q01,How many Visitor visa holders were in Australia on 30 June 2026?,I do not have enough information to answer this question.
+VS12Q01,How many Student visa holders were in Australia on 30 June 2026?,"I can answer the question based on the provided documents. According to Document 1, the number of Student visa holders in Australia on 30 June 2026 is 528,801."
+TR01Q01,What goods must travellers declare before arriving in Australia?,"To declare goods before arriving in Australia, travellers must declare risk goods, including certain food, plant material, and animal products. This includes commercially prepared and packaged, home-made, fresh, dried, cooked, uncooked, or frozen goods, as well as snacks and ingredients for cooking, even in small amounts."
+TR02Q01,What should travellers do with food left over from their plane or ship?,I do not have enough information to answer this question. The retrieved documents do not mention anything about what to do with food left over from a plane or ship.
+TR03Q01,What steps should travellers follow when they arrive in Australia?,"Based on the retrieved documents, I can provide some guidance for travelers arriving in Australia. 
+
+The steps travelers should follow when arriving in Australia depend on the type of visa or Electronic Travel Authority (ETA) they hold.
+
+For those applying for the Frequent Traveller stream of the Visitor visa (subclass 600), they should ensure their stay in Australia does not exceed 3 months per visit and a total of 12 months in any period of 24 months.
+
+For those applying for the Electronic Travel Authority (ETA), they should stay in Australia for up to 3 months on each visit within a 12-month period, or for the life of their passport if it is less than 12 months.
+
+Additionally, travelers should not bring goods that pose a biosecurity risk, such as certain types of plants, animals, and contaminated materials.
+
+I do not have enough information to provide a comprehensive list of steps for travelers arriving in Australia, as it would depend on their specific visa type, duration of stay, and personal circumstances."
+TR04Q01,Can travellers' bags be checked even if they do not declare any goods?,"Yes, travellers' bags can be checked by a biosecurity officer, a detector dog, or X-ray, even if they do not declare any goods. However, it is mandatory to declare certain risk goods, including food, plant material, and animal products, as per law. If travellers fail to declare goods, they may face penalties."
+TR05Q01,What can happen if a traveller fails to declare biosecurity risk goods?,"If a traveller fails to declare biosecurity risk goods, they may face several consequences, including:
+
+1. Being given an infringement notice and subject to civil penalty proceedings.
+2. Being prosecuted for a criminal offence.
+3. Having their visa cancelled.
+
+This is in accordance with the provided document (Document 1)."
+TR06Q01,Will travellers be penalised if they declare goods that are not allowed into Australia?,"Yes, travellers who declare goods that are not allowed into Australia may be penalised, but according to Document 1, they will not be penalised under the Biosecurity Act 2015 if they declare and present all goods, even if they are not allowed into Australia."
+TR07Q01,What happens to goods that a traveller declares when entering Australia?,You will not be penalized under the Biosecurity Act 2015 if you declare all goods when entering Australia.
+TR08Q01,Do travellers need to be concerned about contaminated hiking boots or outdoor equipment?,"I do not have enough information to answer this question. The retrieved documents do not provide any information related to contaminated hiking boots or outdoor equipment, and they seem to be related to visa requirements and importing goods into Australia."
+TR09Q01,What should a traveller do if they discover a biosecurity risk after arriving in Australia?,"If a traveller discovers a biosecurity risk after arriving in Australia, they should inform the relevant authorities, such as the Department of Agriculture, Water and the Environment or the relevant state/territory department, immediately. They should provide as much information as possible about the risk and follow any instructions provided by the authorities."
+TR10Q01,"Are laptops, phones and cameras considered biosecurity risks?","Based on the retrieved documents, laptops, phones, and cameras are not considered biosecurity risks."
+TR11Q01,Do travellers need to declare dairy and egg products when entering Australia?,"Based on the provided documents, I can answer the question: 
+
+When entering Australia, travellers need to declare dairy and egg products, as well as live animal and animal products, as they are subject to regulations and restrictions. However, it does not specifically mention a requirement to declare dairy and egg products."
+TR12Q01,What types of plant material may need to be declared when entering Australia?,"According to Document 3, plant material that may need to be declared when entering Australia includes:
+
+1. Live plants
+2. Seeds
+3. Bulbs
+4. Cuttings
+5. Fresh flowers
+6. Dried flowers
+7. Crafts and ornaments
+8. Wooden items
+9. Bark
+10. Leaves
+11. Straw
+
+Additionally, certain plant materials that are not necessarily plant products (e.g. seeds, bulbs, cuttings) should also be declared."
+TR13Q01,"Do travellers need to declare herbs, spices or herbal teas when entering Australia?","I do not have enough information to answer this question. The retrieved documents do not mention anything about declaring herbs, spices, or herbal teas when entering Australia."
+TR14Q01,What animal products may need to be declared when travelling to Australia?,"When traveling to Australia, animal products that may need to be declared include:
+
+* Eggs
+* Nests
+* Feathers
+* Bones
+* Horns
+* Skins
+* Animal fur and hair
+* Stuffed animals
+* Birds
+* Shells
+* Coral
+* Beeswax
+* Other bee products.
+
+Additionally, all animal products, regardless of amount, must be declared if they are considered ""risk goods"" and include:
+
+* Certain food products
+* Plant material
+* Goods that are commercially prepared and packaged
+* Home-made goods
+* Fresh, dried, cooked, uncooked, or frozen goods
+* Snacks and ingredients for cooking."
+TR15Q01,How can travellers check whether goods are allowed into Australia before travelling?,"To check whether goods are allowed into Australia before traveling, it is recommended to visit the website agriculture.gov.au/bringing-goods. This website provides information on specific import conditions and documentation requirements for bringing goods into Australia. Additionally, the Biosecurity Import Conditions system (BICON) can be used to check import conditions or obtain an import permit if necessary."
