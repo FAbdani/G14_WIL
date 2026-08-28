@@ -10,6 +10,7 @@
 | Jennie Lee | s4077970 |  
 | Richy Naveenoa | s4178251  | 
 
+python -m streamlit run app.py
 
 How to run ollama:
 1. Go to ollama.com
