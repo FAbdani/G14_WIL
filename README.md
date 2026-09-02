@@ -21,3 +21,26 @@ How to run ollama:
 6. Type in a question to confirm it is running. Type '/bye' to exit it
 7. Install the Python library by running 'pip install ollama'
 8. Run the pipeline by running this commands: 'cd src/retrieval' and then 'python rag_system.py'.
+
+### Multilingual Prototype Setup
+
+The multilingual prototype uses three local models:
+
+- `BAAI/bge-m3` - multilingual retrieval (~2.2 GB)
+- `qwen2.5:3b-instruct` - passage selection and grounded answer generation (1.9 GB)
+- `facebook/nllb-200-distilled-600M` - multilingual translation (~2.5 GB)
+
+Total first-time model download is approximately 6.5-7 GB.
+
+#### 1. Install project dependencies
+
+From the project root:
+
+1. 'pip install -r requirements.txt'
+
+2. Download qwen2.5 : run 'ollama pull qwen2.5:3b-instruct'
+
+3. Download BGE-M3 and NLLB : run 'python src/retrieval/multilingual_test.py'
+--> BGE-M3 and NLLB are downloaded automatically from Hugging Face when the multilingual test is run for the first time
+
+**The downloaded models are cached locally and do not need to be downloaded again for later runs.**
