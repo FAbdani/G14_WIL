@@ -11,18 +11,41 @@ VS09,Total student visas granted,VS09Q01,How many student visas were granted in 
 VS10,Higher Education student visas granted,VS10Q01,How many primary Higher Education student visas were granted in 2025-26 to 30 June 2026?
 VS11,Visitor visa holders in Australia,VS11Q01,How many Visitor visa holders were in Australia on 30 June 2026?
 VS12,Student visa holders in Australia,VS12Q01,How many Student visa holders were in Australia on 30 June 2026?
-TR01,Goods declaration requirements,TR01Q01,What goods must travellers declare before arriving in Australia?
-TR02,Food from aircraft or ships,TR02Q01,What should travellers do with food left over from their plane or ship?
-TR03,Arrival process,TR03Q01,What steps should travellers follow when they arrive in Australia?
-TR04,Baggage inspection,TR04Q01,Can travellers' bags be checked even if they do not declare any goods?
-TR05,Failure to declare risk goods,TR05Q01,What can happen if a traveller fails to declare biosecurity risk goods?
-TR06,Declaring prohibited goods,TR06Q01,Will travellers be penalised if they declare goods that are not allowed into Australia?
-TR07,Declared goods inspection,TR07Q01,What happens to goods that a traveller declares when entering Australia?
-TR08,Outdoor equipment biosecurity,TR08Q01,Do travellers need to be concerned about contaminated hiking boots or outdoor equipment?
-TR09,Biosecurity risks found after arrival,TR09Q01,What should a traveller do if they discover a biosecurity risk after arriving in Australia?
-TR10,Electronic equipment,TR10Q01,"Are laptops, phones and cameras considered biosecurity risks?"
-TR11,Dairy and egg products,TR11Q01,Do travellers need to declare dairy and egg products when entering Australia?
-TR12,Plant material,TR12Q01,What types of plant material may need to be declared when entering Australia?
-TR13,Herbs spices and teas,TR13Q01,"Do travellers need to declare herbs, spices or herbal teas when entering Australia?"
-TR14,Animal products,TR14Q01,What animal products may need to be declared when travelling to Australia?
-TR15,Checking import conditions,TR15Q01,How can travellers check whether goods are allowed into Australia before travelling?
+TR01,Travel document requirements,TR01Q01,What travel document must all arriving and departing passengers have?
+TR02,Incoming Passenger Card,TR02Q01,What must arriving passengers complete when entering Australia?
+TR03,Visa requirement for non-citizens,TR03Q01,What visa requirement applies to non-citizens entering Australia?
+TR04,Arrival SmartGate eligibility,TR04Q01,Who is eligible to use SmartGate on arrival at Australian airports?
+TR05,Departure SmartGate conditions,TR05Q01,What conditions apply to using departure SmartGates?
+TR06,Registering expensive items before departure,TR06Q01,What should travellers do with expensive items like cameras or laptops if they intend to bring them back into Australia?
+TR07,Form for registering exported goods,TR07Q01,What form is used to register expensive items taken out of Australia?
+TR08,Duty-free goods on departure,TR08Q01,What must travellers do with duty-free goods when leaving Australia?
+TR09,Passport stamping practice,TR09Q01,Does Border Force stamp Australian passports as standard practice?
+TR10,Fingerprint checking at the border,TR10Q01,Under what circumstance might a traveller need their fingerprints checked?
+TR11,Fingerprint scan details,TR11Q01,"How many fingerprints are scanned during a biometric check, and are the scans kept afterwards?"
+TR12,Camera and phone use at the border,TR12Q01,When are passengers permitted to use cameras or mobile phones at the border?
+TR13,Legal power to restrict device use,TR13Q01,Under what law can officers direct travellers not to use cameras or phones in a customs controlled area?
+TR14,Baggage examination and questioning powers,TR14Q01,What powers do Border Force officers have regarding baggage examination and questioning of travellers?
+TR15,Passenger risk assessment,TR15Q01,How does the Department decide which passengers to examine or search?
+TR16,Advance passenger processing,TR16Q01,What is advance passenger processing?
+TR17,Legal basis for questioning powers,TR17Q01,Under what section of the Customs Act do Border Force officers exercise their questioning powers?
+TR18,Types of questions asked at the border,TR18Q01,What kinds of questions might a Border Force officer ask a traveller about their baggage?
+TR19,Refusing to answer officer questions,TR19Q01,What can happen if a traveller refuses to answer an officer's questions?
+TR20,Baggage examination methods,TR20Q01,What methods might a Border Force officer use to examine a traveller's baggage?
+TR21,Copying travellers' documents,TR21Q01,Under what circumstances may Border Force officers copy a traveller's documents?
+TR22,Definition of a document for border powers,TR22Q01,Does the definition of 'document' used for border examinations include information stored on phones and laptops?
+TR23,Electronic device retention for examination,TR23Q01,How long may an electronic device be retained for forensic examination at the border?
+TR24,Prioritising device examinations,TR24Q01,What factors does Border Force consider when prioritising an electronic device examination?
+TR25,Checking what can be brought into Australia,TR25Q01,Where should travellers look to find out what items can be brought into or out of Australia?
+TR26,Visitor visa (600) purpose and stay lengths,TR26Q01,"What is the Visitor visa (subclass 600) generally used for, and how long can it last?"
+TR27,Business Visitor stream work restriction,TR27Q01,Does the Visitor visa's Business Visitor stream allow the holder to work in Australia?
+TR28,eVisitor visa conditions,TR28Q01,"What are the validity period, stay length and cost of an eVisitor visa (subclass 651)?"
+TR29,Student visa purpose,TR29Q01,What is the Student visa (subclass 500) for?
+TR30,Genuine Student requirement criterion,TR30Q01,What must Student visa applicants demonstrate under the Genuine Student requirement?
+TR31,Purpose of the Genuine Student requirement,TR31Q01,What is the purpose of the Genuine Student requirement?
+TR32,Working Holiday visa purpose,TR32Q01,Who is the Working Holiday visa (subclass 417) designed for?
+TR33,First Working Holiday visa age range,TR33Q01,What is the standard age range for a first Working Holiday visa (subclass 417)?
+TR34,UK Working Holiday Maker arrangements,TR34Q01,What special arrangements apply to UK passport holders applying for a Working Holiday visa (subclass 417)?
+TR35,Work limit with one employer,TR35Q01,How long can a Working Holiday (417) or Work and Holiday (462) visa holder work for a single employer?
+TR36,Study or training limit on Working Holiday Maker visas,TR36Q01,How much study or training can a Working Holiday Maker visa holder undertake during their stay?
+TR37,First Work and Holiday visa purpose,TR37Q01,Who is the first Work and Holiday visa (subclass 462) designed for?
+TR38,Passport validity recommendation for Visitor visa,TR38Q01,How long is it recommended that a traveller's passport remain valid when applying for a Visitor visa?
