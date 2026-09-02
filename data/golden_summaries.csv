@@ -11,18 +11,41 @@ VS09Q01,VP009,"A total of 337,527 student visas were granted in 2025-26 to 30 Ju
 VS10Q01,VP010,"A total of 195,607 primary Higher Education student visas were granted in 2025-26 to 30 June 2026.",VP010
 VS11Q01,VP011,"There were 296,625 Visitor visa holders in Australia on 30 June 2026.",VP011
 VS12Q01,VP012,"There were 528,801 Student visa holders in Australia on 30 June 2026.",VP012
-TR01Q01,TRP001,"Travellers must declare risk goods, including certain food, plant material and animal products.",TRP001
-TR02Q01,TRP002,Travellers should not take food off the plane or ship.,TRP002
-TR03Q01,TRP003,"Travellers should proceed through immigration clearance, collect their baggage, then proceed to biosecurity inspection with their declaration and declared goods.",TRP003
-TR04Q01,TRP004,"Yes. Bags may be checked by a biosecurity officer, detector dog or X-ray even if no goods are declared.",TRP004
-TR05Q01,TRP005,"A traveller may receive an infringement notice, face civil penalty proceedings or criminal prosecution. Their visa may also be cancelled.",TRP005
-TR06Q01,TRP006,Travellers will not be penalised under the Biosecurity Act 2015 if they declare and present all goods.,TRP006
-TR07Q01,TRP007,"Declared goods are inspected. Goods that pass inspection are returned, while goods that fail may need to be treated, exported or destroyed.",TRP007
-TR08Q01,TRP008,"Yes. Hiking boots and outdoor equipment contaminated with soil, seeds, animal matter or freshwater may present a biosecurity risk.",TRP008
-TR09Q01,TRP009,Travellers who discover a biosecurity risk after arrival should phone 1800 798 636.,TRP009
-TR10Q01,TRP010,"No. Laptops, tablets, phones and cameras are not considered biosecurity risks.",TRP010
-TR11Q01,TRP011,"Certain dairy and egg products must be declared, including cheese, milk, yoghurt and egg products.",TRP011
-TR12Q01,TRP012,"Plant materials that may require declaration include live plants, seeds, bulbs, flowers, wooden items, bark, leaves and straw.",TRP012
-TR13Q01,TRP013,"Yes. Herbs, spices and herbal teas are among the food products travellers need to declare.",TRP013
-TR14Q01,TRP014,"Animal products that may need declaration include eggs, feathers, bones, horns, skins, fur, shells, coral and bee products.",TRP014
-TR15Q01,TRP015,Travellers can check Australian Government bringing-goods guidance and BICON. Required import permits must be obtained before bringing the goods to Australia.,TRP015
+TR01Q01,TRP001,A valid passport or other accepted travel document.,TRP001
+TR02Q01,TRP002,An Incoming Passenger Card (IPC).,TRP002
+TR03Q01,TRP003,Non-citizens must hold a valid visa when they enter Australia.,TRP003
+TR04Q01,TRP004,Travellers with an ePassport who are aged 7 or over and taller than 1.1m.,TRP004
+TR05Q01,TRP005,Any traveller with a valid machine-readable passport who can use the gate independently.,TRP005
+TR06Q01,TRP006,Register the items with Border Force before leaving Australia.,TRP006
+TR07Q01,TRP007,The B263 Goods Exported in Passenger Baggage form.,TRP007
+TR08Q01,TRP008,"Take the goods with them, present them for inspection at departure, and possibly declare them on return.",TRP008
+TR09Q01,TRP009,"No, not routinely, but a traveller can request one if they need proof of travel.",TRP009
+TR10Q01,TRP010,"Non-citizens may be fingerprinted on arrival or departure, to verify identity and resolve concerns.",TRP010
+TR11Q01,TRP011,At least four fingerprints; the scans are deleted once the check is complete.,TRP011
+TR12Q01,TRP012,"At any time, except during clearance or if directed otherwise by an officer.",TRP012
+TR13Q01,TRP013,The Customs Act 1901.,TRP013
+TR14Q01,TRP014,"They can examine baggage and question travellers to identify breaches of customs, quarantine and other Commonwealth legislation.",TRP014
+TR15Q01,TRP015,"Through risk-assessment, intelligence, targeting and profiling techniques.",TRP015
+TR16Q01,TRP016,"Airlines supply passenger details before arrival, which the Department analyses for risk factors.",TRP016
+TR17Q01,TRP017,Section 195 of the Customs Act 1901.,TRP017
+TR18Q01,TRP018,"Questions can cover what's in the bags, who packed them, where the trip started, and the source and price of any goods.",TRP018
+TR19Q01,TRP019,"Their goods may be physically examined, which can delay their clearance.",TRP019
+TR20Q01,TRP020,"Opening packages, x-ray or ion scanning, testing goods, counting/measuring, using a detector dog, or reading documents.",TRP020
+TR21Q01,TRP021,"If the officer believes the document may be relevant to prohibited goods, an offence, or a security matter.",TRP021
+TR22Q01,TRP022,"Yes, it includes information stored on mobile phones, SIM cards, laptops and computers.",TRP022
+TR23Q01,TRP023,"For as long as reasonably necessary to complete the examination, longer if prohibited content is found.",TRP023
+TR24Q01,TRP024,"Confirmed travel plans, the impact on employment, and the traveller's personal circumstances.",TRP024
+TR25Q01,TRP025,The 'Can you bring it in?' section of the Australian Border Force website.,TRP025
+TR26Q01,TRP026,"Tourism, business visits, or visiting family, for a stay of 3, 6 or 12 months.",TRP026
+TR27Q01,TRP027,"No, business visitor activities are defined as excluding work.",TRP027
+TR28Q01,TRP028,"Valid for 12 months with unlimited visits, each capped at 3 months, and free to apply for.",TRP028
+TR29Q01,TRP029,Studying full-time at a recognised educational institution in Australia.,TRP029
+TR30Q01,TRP030,"They must satisfy the Genuine Student (GS) criterion, or the GS dependent criterion for accompanying family members.",TRP030
+TR31Q01,TRP031,"To recognise students who may build needed skills while studying, without penalising them for later wanting permanent residence.",TRP031
+TR32Q01,TRP032,Young adults wanting an extended holiday in Australia who plan to work to help pay for it.,TRP032
+TR33Q01,TRP033,"18 to 30 years old, for most nationalities.",TRP033
+TR34Q01,TRP034,"They can apply aged 18-35, and can get up to three Working Holiday visas without meeting specified work requirements.",TRP034
+TR35Q01,TRP035,"Up to six months with any one employer, unless an exemption applies or extra permission is granted.",TRP035
+TR36Q01,TRP036,"Up to four months of study or training, since it must remain incidental to the working holiday.",TRP036
+TR37Q01,TRP037,"People aged 18 to 30 wanting an extended holiday in Australia, funded partly by working here.",TRP037
+TR38Q01,TRP038,At least 6 months.,TRP038
