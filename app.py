@@ -1,5 +1,9 @@
 # Import Streamlit to build the browser-based interface.
 import streamlit as st
+from src.retrieval.multilingual import (
+    process_multilingual_question,
+    detect_language,
+)
 
 # Import the real RAG entry point. This function performs retrieval, sends the
 # retrieved passages to Ollama and returns both the answer and citation data.
@@ -560,7 +564,6 @@ st.html("""
     </style>
     """)
 
-
 def queue_question(question):
     """
     Save a question immediately and queue it for answer generation.
@@ -604,9 +607,15 @@ def generate_assistant_message(question):
     try:
         # The pipeline returns a dictionary containing generated answer text and
         # the exact retrieved passages used as its grounding context.
-        result = answer_question_with_sources(question)
-        answer = result["answer"]
-        sources = result["sources"]
+        language = detect_language(question)
+
+        if language == "English":
+            result = answer_question_with_sources(question)
+            answer = result["answer"]
+            sources = result["sources"]
+        else:
+            answer = process_multilingual_question(question)
+            sources = []
 
         # A refusal means the retrieved passages were not sufficient to support
         # an answer. Do not present those passages as citations, because doing so
