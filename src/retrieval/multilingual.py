@@ -40,90 +40,6 @@ RETRIEVAL_TOP_K = 10
 
 
 # ============================================================
-# TEST CASES
-# ============================================================
-
-TEST_CASES = [
-    # ========================================================
-    # KOREAN
-    # ========================================================
-
-    {
-        "question_id": "TR01_KO",
-        "language": "Korean",
-        "lang_code": KOREAN_LANG,
-        "question": "호주에 입국하거나 출국할 때 유효한 여권이 필요한가요?",
-        "expected_passage_id": "TRP001",
-    },
-    {
-        "question_id": "TR02_KO",
-        "language": "Korean",
-        "lang_code": KOREAN_LANG,
-        "question": "호주에 도착하는 승객은 입국 승객 카드를 작성해야 하나요?",
-        "expected_passage_id": "TRP002",
-    },
-    {
-        "question_id": "TR03_KO",
-        "language": "Korean",
-        "lang_code": KOREAN_LANG,
-        "question": "호주 시민이 아닌 사람이 호주에 입국하려면 유효한 비자가 필요한가요?",
-        "expected_passage_id": "TRP003",
-    },
-
-    # ========================================================
-    # MANDARIN
-    # ========================================================
-
-    {
-        "question_id": "TR01_ZH",
-        "language": "Mandarin",
-        "lang_code": MANDARIN_LANG,
-        "question": "进入或离开澳大利亚时需要有效护照吗？",
-        "expected_passage_id": "TRP001",
-    },
-    {
-        "question_id": "TR02_ZH",
-        "language": "Mandarin",
-        "lang_code": MANDARIN_LANG,
-        "question": "抵达澳大利亚的乘客需要填写入境旅客卡吗？",
-        "expected_passage_id": "TRP002",
-    },
-    {
-        "question_id": "TR03_ZH",
-        "language": "Mandarin",
-        "lang_code": MANDARIN_LANG,
-        "question": "非澳大利亚公民进入澳大利亚时需要有效签证吗？",
-        "expected_passage_id": "TRP003",
-    },
-
-    # ========================================================
-    # HINDI
-    # ========================================================
-
-    {
-        "question_id": "TR01_HI",
-        "language": "Hindi",
-        "lang_code": HINDI_LANG,
-        "question": "ऑस्ट्रेलिया में प्रवेश करते या वहां से जाते समय क्या वैध पासपोर्ट आवश्यक है?",
-        "expected_passage_id": "TRP001",
-    },
-    {
-        "question_id": "TR02_HI",
-        "language": "Hindi",
-        "lang_code": HINDI_LANG,
-        "question": "ऑस्ट्रेलिया पहुंचने वाले यात्रियों को क्या इनकमिंग पैसेंजर कार्ड भरना होता है?",
-        "expected_passage_id": "TRP002",
-    },
-    {
-        "question_id": "TR03_HI",
-        "language": "Hindi",
-        "lang_code": HINDI_LANG,
-        "question": "क्या गैर-ऑस्ट्रेलियाई नागरिकों को ऑस्ट्रेलिया में प्रवेश करने के लिए वैध वीजा चाहिए?",
-        "expected_passage_id": "TRP003",
-    },
-]
-
-# ============================================================
 # LOAD COLLECTION
 # ============================================================
 
@@ -215,13 +131,14 @@ print(
 
 # ============================================================
 # STEP 1 - MULTILINGUAL RETRIEVAL
-# No translation before retrieval.
 # ============================================================
 
 def retrieve_passages(question):
     """
     Retrieve English passages directly from the original
-    Korean, Mandarin, or Hindi question using BGE-M3.
+    Korean, Mandarin, Hindi, or English question.
+
+    No translation happens before retrieval.
     """
 
     query_embedding = create_embeddings(
@@ -273,7 +190,7 @@ def select_best_passage(
 ):
     """
     Ask Qwen to select the passage that most directly
-    answers the multilingual question.
+    answers the user's question.
     """
 
     passage_text = "\n\n".join(
@@ -293,7 +210,9 @@ def select_best_passage(
     )
 
     user_prompt = f"""
-The user's question may be written in Korean, Mandarin Chinese, or Hindi.
+The user's question may be written in English, Korean,
+Mandarin Chinese, or Hindi.
+
 The candidate passages are written in English.
 
 Choose the ONE passage that most directly contains
@@ -341,6 +260,7 @@ Best passage ID:
         if item["passage_id"] in selected_text:
             return item
 
+    # Fallback to highest-ranked passage
     return retrieved_passages[0]
 
 
@@ -412,8 +332,7 @@ def translate_question_to_english(
     source_lang,
 ):
     """
-    Translate the original question into English
-    after retrieval and passage selection.
+    Translate the question into English after retrieval.
     """
 
     return translate_text(
@@ -439,7 +358,7 @@ def is_english_output(text):
     if re.search(r"[\uac00-\ud7af]", text):
         return False
 
-    # Chinese
+    # Mandarin Chinese
     if re.search(r"[\u4e00-\u9fff]", text):
         return False
 
@@ -540,7 +459,8 @@ def generate_answer(
     selected_passage,
 ):
     """
-    Generate grounded English answer.
+    Generate a grounded English answer.
+
     Retry once if non-English output is detected.
     """
 
@@ -554,7 +474,7 @@ def generate_answer(
         return answer, False
 
     print(
-        "\nEnglish validation failed. "
+        "English validation failed. "
         "Retrying generation once..."
     )
 
@@ -576,7 +496,7 @@ def translate_answer_to_target(
     target_lang,
 ):
     """
-    Translate grounded English answer into the
+    Translate the grounded English answer into the
     user's original language.
     """
 
@@ -588,231 +508,86 @@ def translate_answer_to_target(
 
 
 # ============================================================
-# RUN TESTS
+# LANGUAGE DETECTION
 # ============================================================
 
-if __name__ == "__main__":
+def detect_language(text):
+    """
+    Detect one of the supported languages from user input.
+    """
 
-    retrieval_success_count = 0
-    selection_success_count = 0
-    generation_retry_count = 0
+    # Korean
+    if re.search(r"[\uac00-\ud7af]", text):
+        return "Korean", KOREAN_LANG
 
-    for test in TEST_CASES:
+    # Hindi
+    if re.search(r"[\u0900-\u097f]", text):
+        return "Hindi", HINDI_LANG
 
-        question_id = test["question_id"]
-        question = test["question"]
-        language = test["language"]
-        lang_code = test["lang_code"]
-        expected = test["expected_passage_id"]
+    # Mandarin Chinese
+    if re.search(r"[\u4e00-\u9fff]", text):
+        return "Mandarin", MANDARIN_LANG
 
-        print("\n")
-        print("=" * 70)
-        print(question_id)
-        print("=" * 70)
-
-        print(
-            f"\nOriginal {language} question:"
-        )
-        print(question)
+    # Default to English
+    return "English", ENGLISH_LANG
 
 
-        # ----------------------------------------------------
-        # STEP 1 - RETRIEVAL
-        # ----------------------------------------------------
+# ============================================================
+# FULL MULTILINGUAL PIPELINE
+# ============================================================
 
-        retrieved = retrieve_passages(
-            question
-        )
+def process_multilingual_question(question):
+    """
+    Process a user question end-to-end.
 
-        print("\nRetrieved passages:")
+    1. Detect the original language.
+    2. Retrieve using the original question.
+    3. Translate the question to English if needed.
+    4. Select the best passage using the English question.
+    5. Generate a grounded English answer.
+    6. Translate the answer back to the original language.
+    """
 
-        for i, item in enumerate(
-            retrieved,
-            start=1,
-        ):
-
-            print(
-                f"\nRank {i}: "
-                f"{item['passage_id']} "
-                f"(score={item['score']:.4f})"
-            )
-
-            print(
-                item["passage"]
-            )
-
-
-        # ----------------------------------------------------
-        # RETRIEVAL TEST
-        # ----------------------------------------------------
-
-        retrieved_ids = [
-            item["passage_id"]
-            for item in retrieved
-        ]
-
-        if expected in retrieved_ids:
-
-            retrieval_rank = (
-                retrieved_ids.index(
-                    expected
-                )
-                + 1
-            )
-
-            retrieval_success_count += 1
-
-            print(
-                f"\nRetrieval SUCCESS: "
-                f"{expected} at rank "
-                f"{retrieval_rank}"
-            )
-
-        else:
-
-            print(
-                f"\nRetrieval FAILED: "
-                f"{expected} not found "
-                f"in top-{RETRIEVAL_TOP_K}"
-            )
-
-            continue
-
-
-        # ----------------------------------------------------
-        # STEP 2 - PASSAGE SELECTION
-        # ----------------------------------------------------
-
-        selected_passage = (
-            select_best_passage(
-                question,
-                retrieved,
-            )
-        )
-
-        print("\nSelected passage:")
-        print(
-            selected_passage["passage_id"]
-        )
-
-        print(
-            selected_passage["passage"]
-        )
-
-
-        # ----------------------------------------------------
-        # SELECTION TEST
-        # ----------------------------------------------------
-
-        if (
-            selected_passage["passage_id"]
-            == expected
-        ):
-
-            selection_success_count += 1
-
-            print(
-                f"\nSelection SUCCESS: "
-                f"{expected}"
-            )
-
-        else:
-
-            print(
-                f"\nSelection WARNING: "
-                f"expected {expected}, "
-                f"but selected "
-                f"{selected_passage['passage_id']}"
-            )
-
-
-        # ----------------------------------------------------
-        # STEP 3 - QUESTION -> ENGLISH
-        # ----------------------------------------------------
-
-        english_question = (
-            translate_question_to_english(
-                question,
-                lang_code,
-            )
-        )
-
-        print(
-            "\nTranslated English question:"
-        )
-
-        print(
-            english_question
-        )
-
-
-        # ----------------------------------------------------
-        # STEP 4 - GENERATE ENGLISH ANSWER
-        # ----------------------------------------------------
-
-        english_answer, was_retried = (
-            generate_answer(
-                english_question,
-                selected_passage,
-            )
-        )
-
-        if was_retried:
-            generation_retry_count += 1
-
-        print(
-            "\nGrounded English answer:"
-        )
-
-        print(
-            english_answer
-        )
-
-
-        # ----------------------------------------------------
-        # STEP 5 - ENGLISH -> ORIGINAL LANGUAGE
-        # ----------------------------------------------------
-
-        final_answer = (
-            translate_answer_to_target(
-                english_answer,
-                lang_code,
-            )
-        )
-
-        print(
-            f"\nFinal {language} answer:"
-        )
-
-        print(
-            final_answer
-        )
-
-
-    # ========================================================
-    # SUMMARY
-    # ========================================================
-
-    print("\n")
-    print("=" * 70)
-    print("MULTILINGUAL PIPELINE SUMMARY")
-    print("=" * 70)
-
-    print(
-        f"\nRelevant passage retrieved: "
-        f"{retrieval_success_count}"
-        f"/{len(TEST_CASES)}"
+    language, lang_code = detect_language(
+        question
     )
 
-    print(
-        f"Correct passage selected: "
-        f"{selection_success_count}"
-        f"/{len(TEST_CASES)}"
+    # Step 1 - Retrieve using original question
+    retrieved = retrieve_passages(
+        question
     )
 
-    print(
-        f"English generation retries: "
-        f"{generation_retry_count}"
+    # Step 2 - Translate question to English if needed
+    if lang_code == ENGLISH_LANG:
+        english_question = question
+    else:
+        english_question = translate_question_to_english(
+            question,
+            lang_code,
+        )
+
+    # Step 3 - Select best passage using English question
+    selected_passage = retrieved[0]
+
+    # Step 4 - Generate grounded English answer
+    english_answer, _ = generate_answer(
+        english_question,
+        selected_passage,
     )
 
-    
+    # Step 5 - Translate back to original language
+    if lang_code == ENGLISH_LANG:
+        final_answer = english_answer
+    else:
+        final_answer = translate_answer_to_target(
+            english_answer,
+            lang_code,
+        )
+
+    print("Detected language:", language)
+    print("English question:", english_question)
+    print("Selected passage:", selected_passage["passage_id"])
+    print("English answer:", english_answer)
+
+    return final_answer
+

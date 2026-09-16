@@ -1,5 +1,6 @@
 # Import Streamlit to build the browser-based interface.
 import streamlit as st
+from src.retrieval.multilingual import process_multilingual_question
 
 # Configure the browser tab and application layout.
 # This must be the first Streamlit command in the file.
@@ -558,25 +559,7 @@ st.html("""
 
 
 def generate_answer(question):
-    """
-    Generate a temporary answer for interface testing.
-
-    The team will later replace this function with the full RAG
-    retrieval and answer-generation pipeline.
-
-    Parameters:
-        question (str): The question submitted by the user.
-
-    Returns:
-        str: A temporary assistant response.
-    """
-
-    return (
-        "Your question has been received successfully. This interface "
-        "currently uses a placeholder response. The RAG pipeline will "
-        "later retrieve relevant official information and display a "
-        "supported answer with visible source citations."
-    )
+    return process_multilingual_question(question)
 
 
 def submit_question(question):
