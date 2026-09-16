@@ -1,46 +1,60 @@
-from pyserini.search.lucene import LuceneSearcher
+# loading libraries
+from sklearn.feature_extraction.text import TfidfVectorizer
+from sklearn.metrics.pairwise import cosine_similarity
 import pandas as pd
 import ollama
 
 
+# file paths
 COLLECTION = "../../data/collection.csv"
 TOPICS = "../../data/topics.csv"
 
 OUTPUT = "../../target/runs/generated_answers.csv"
-INDEX = "../../target/indexes/bm25"
+MODEL = "llama3.2"
 
-searcher = LuceneSearcher(INDEX)
+# This is the threshold so below this is it no relevant passages found
+MIN_SIMILARITY = 0.05 
 
+# loading the data
 collection_df = pd.read_csv(COLLECTION)
 topics_df = pd.read_csv(TOPICS)
 
+# building the tfidf search index
+vectorizer = TfidfVectorizer(stop_words = 'english')
+passage_vectors = vectorizer.fit_transform(collection_df['passage'])
+
 def get_context_passages(question, top_k = 3):
     """Retrieve the top_k most relevant passages for a question using BM25"""
-    num_hits = 10
-    hits = searcher.search(question, num_hits)
     
+    # converting the question into a vector
+    question_vector = vectorizer.transform([question])
+    # measuring how similar each questio is to a passage
+    similarities = cosine_similarity(question_vector, passage_vectors).flatten()
+
+    # gets the indices of the top_k highest-scoring passages
+    top_indices = similarities.argsort()[::-1][:top_k]
+    
+    # only keeps the passages that are above the minimum similarity threshold
     context_passages = []
-    for hit in hits[:top_k]:
-        matches = collection_df[collection_df['passage_id'] == hit.docid]['passage']
-        if not matches.empty:
-            context_passages.append(matches.values[0])
-            
+    for idx in top_indices:
+        if similarities[idx] >= MIN_SIMILARITY:
+            context_passages.append(collection_df.iloc[idx]['passage'])
+
     return context_passages
     
 def generate_answer(question, context):
-    """Generate an answer from Ollama grounded in retrieved passaged"""
+    """Generate an answer from Ollama grounded in retrieved passages"""
     static_prompt = (
         "Generate an answer to the following question based on the retrieved documents below."
         "Check each document and use only the relevant document(s) to answer"
         "If the retrieved documents are not related to the question, then say: "
         "\"I do not have enough information to answer this question.\""
     )
-    
+
     doc_lines = "\n".join(f"Document {i + 1}: {passage}" for i, passage in enumerate(context))
-    
     prompt = f"{static_prompt}\nQuestion: {question}\n{doc_lines}\nAnswer:"
-    
-    response = ollama.chat(model = 'llama3.2', messages = [
+
+    response = ollama.chat(model=MODEL, messages=[
         {'role': 'user', 'content': prompt}
     ])
     return response['message']['content']
@@ -54,10 +68,10 @@ def get_answer(text):
 
 def answer_question(question):
     context_passages = get_context_passages(question)
-    
+
     if not context_passages:
         return "I apologize, I have no knowledge about that"
-    
+
     raw_answer = generate_answer(question, context_passages)
     return get_answer(raw_answer)
 
@@ -75,4 +89,4 @@ if __name__ == "__main__":
         
     results_df = pd.DataFrame(results)
     results_df.to_csv(OUTPUT, index = False)
-    print(f"\nDone. {len(results)} answers saved to {OUTPUT}")
+    print(f"\n {len(results)} answers saved to {OUTPUT}")
