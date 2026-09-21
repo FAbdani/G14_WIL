@@ -4,41 +4,23 @@ from scipy.io.wavfile import write
 from faster_whisper import WhisperModel
 import subprocess
 from datetime import datetime
-from pathlib import Path
-from difflib import SequenceMatcher
-import pandas as pd
+
+# Import the RAG function made by the team
+from src.retrieval.rag_system import answer_question_with_sources
 
 
-# Find the main GitHub project folder
-project_folder = Path(__file__).resolve().parent
-
-# Connect to the question and answer files from GitHub
-questions_file = project_folder / "data" / "topics.csv"
-answers_file = project_folder / "data" / "golden_summaries.csv"
-
-
-# Load the GitHub questions and answers
-questions_df = pd.read_csv(questions_file)
-answers_df = pd.read_csv(answers_file)
-
-# Join each question to its corresponding expected answer
-question_answer_df = questions_df.merge(answers_df[["question_id", "summary"]],on="question_id")
-
-print(len(question_answer_df),"questions and answers were loaded from GitHub.")
-
-
-# The recording settings
+# Settings for the voice recording
 sample_rate = 16000
 recording_time = 10
 
 
-# Tell the user what to do
+# Let the user know that the recording is starting
 print()
 print("Recording for 10 seconds...")
-print("Please say one of the questions from topics.csv.")
+print("Please ask a question about Australian visa information.")
 
 
-# Record audio from the laptop microphone
+# Record the user's voice through the microphone
 recording = sd.rec(
     int(recording_time * sample_rate),
     samplerate=sample_rate,
@@ -46,13 +28,15 @@ recording = sd.rec(
     dtype="int16"
 )
 
-# Wait until the recording is finished
+# Wait until the full 10 seconds have been recorded
 sd.wait()
 
 
-# Create a different filename using the current date and time
+# Add the current date and time to the audio filename
+# This stops each new recording from replacing the previous one
 current_time = datetime.now().strftime("%Y%m%d_%H%M%S")
 audio_file = f"travel_question_{current_time}.wav"
+
 
 # Save the recording as a WAV file
 write(audio_file, sample_rate, recording)
@@ -62,77 +46,94 @@ print("The question is now being transcribed...")
 
 
 # Load the base Whisper model
-# The CPU and int8 settings allow it to run without a graphics card
-model = WhisperModel("base",device="cpu",compute_type="int8")
+# I am using CPU and int8 because my laptop does not need a graphics card for this
+model = WhisperModel(
+    "base",
+    device="cpu",
+    compute_type="int8"
+)
 
 
-# Transcribe the recorded question
-segments, information = model.transcribe(audio_file,language="en",beam_size=5)
+# Use Whisper to convert the recorded voice into text
+segments, information = model.transcribe(
+    audio_file,
+    language="en",
+    beam_size=5
+)
 
 
-# Join the transcribed sections into one sentence
+# Whisper may return the transcription in different sections
+# This joins all of the sections into one complete question
 transcribed_text = ""
 
 for segment in segments:
-    transcribed_text += segment.text.strip() + " "
+    transcribed_text = transcribed_text + segment.text.strip() + " "
 
 transcribed_text = transcribed_text.strip()
 
 
-# Display the transcription
+# Show what Whisper heard
 print("Detected language:", information.language)
-print("Transcribed text:", transcribed_text)
+print("Transcribed question:", transcribed_text)
 
 
-# Continue only if speech was detected
+# Only search for an answer if some speech was detected
 if transcribed_text:
 
-    best_row = None
-    best_score = 0
+    print()
+    print("Searching for an answer...")
 
-    # Compare the transcription with every question from topics.csv
-    for index, row in question_answer_df.iterrows():
+    try:
+        # Send the transcribed question to the team's RAG system
+        rag_result = answer_question_with_sources(transcribed_text)
 
-        saved_question = str(row["question"])
-
-        similarity_score = SequenceMatcher(
-            None,
-            transcribed_text.lower(),
-            saved_question.lower()
-        ).ratio()
-
-        # Remember the most similar question
-        if similarity_score > best_score:
-            best_score = similarity_score
-            best_row = row
-
-
-    # Only provide an answer when the match is strong enough
-    if best_row is not None and best_score >= 0.55:
-
-        matched_question_id = best_row["question_id"]
-        matched_question = best_row["question"]
-        matched_answer = best_row["summary"]
+        # The RAG system returns the answer and the sources it used
+        answer = rag_result["answer"]
+        sources = rag_result["sources"]
 
         print()
-        print("Matched question ID:", matched_question_id)
-        print("Matched question:", matched_question)
-        print("Match score:", round(best_score, 2))
-        print("Answer:", matched_answer)
+        print("Answer:", answer)
+
+
+        # Show the source passage IDs if any sources were found
+        if sources:
+
+            print()
+            print("Sources used:")
+
+            for source in sources:
+                passage_id = source["passage_id"]
+                similarity = source["similarity"]
+
+                print(
+                    "- Passage:",
+                    passage_id,
+                    "| Similarity:",
+                    round(similarity, 3)
+                )
+
+
+        # Read the generated answer aloud
+        print()
         print("Reading the answer aloud...")
 
-        # Read the matched answer aloud
+        # Use the same Python installation to run Edge playback
+        # This avoids problems if edge-playback is not available through PATH
         subprocess.run([
-            "edge-playback",
+            "edge_playback",
             "--text",
-            str(matched_answer),
+            answer,
             "--voice",
             "en-AU-NatashaNeural"
         ])
 
-    else:
+    # Display the error instead of stopping the whole program
+    except Exception as error:
         print()
-        print("The question did not closely match a question in topics.csv.")
+        print("The program could not generate an answer.")
+        print("Error:", error)
 
+
+# This happens if Whisper did not detect any speech
 else:
     print("No speech was detected, so there is nothing to answer.")
