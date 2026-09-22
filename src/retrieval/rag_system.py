@@ -20,10 +20,10 @@ collection_df = pd.read_csv(COLLECTION)
 topics_df = pd.read_csv(TOPICS)
 
 # building the tfidf search index
-vectorizer = TfidfVectorizer(stop_words = 'english')
+vectorizer = TfidfVectorizer(stop_words = 'english', ngram_range = (1, 2))
 passage_vectors = vectorizer.fit_transform(collection_df['passage'])
 
-def get_context_passages(question, top_k = 3):
+def get_context_passages(question, top_k = 5):
     """Retrieve the top_k most relevant passages for a question using BM25"""
     
     # converting the question into a vector
