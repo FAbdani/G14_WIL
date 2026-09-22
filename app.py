@@ -1,5 +1,13 @@
 # Import Streamlit to build the browser-based interface.
 import streamlit as st
+from src.retrieval.multilingual import (
+    process_multilingual_question,
+    detect_language,
+)
+
+# Import the real RAG entry point. This function performs retrieval, sends the
+# retrieved passages to Ollama and returns both the answer and citation data.
+from src.retrieval.rag_system import answer_question_with_sources
 
 # Configure the browser tab and application layout.
 # This must be the first Streamlit command in the file.
@@ -556,32 +564,14 @@ st.html("""
     </style>
     """)
 
-
-def generate_answer(question):
+def queue_question(question):
     """
-    Generate a temporary answer for interface testing.
+    Save a question immediately and queue it for answer generation.
 
-    The team will later replace this function with the full RAG
-    retrieval and answer-generation pipeline.
-
-    Parameters:
-        question (str): The question submitted by the user.
-
-    Returns:
-        str: A temporary assistant response.
-    """
-
-    return (
-        "Your question has been received successfully. This interface "
-        "currently uses a placeholder response. The RAG pipeline will "
-        "later retrieve relevant official information and display a "
-        "supported answer with visible source citations."
-    )
-
-
-def submit_question(question):
-    """
-    Add a question and temporary answer to the conversation.
+    Streamlit runs Python from top to bottom. The earlier implementation called
+    Ollama before rerunning the page, so the user's question did not appear
+    until generation finished. Queuing separates those steps: the next rerun
+    first displays the question and then starts the slower model call.
 
     Parameters:
         question (str): A typed or preselected question.
@@ -591,7 +581,7 @@ def submit_question(question):
     if not question:
         return
 
-    # Save the user's question.
+    # Save the user's question now so it appears before Ollama begins working.
     st.session_state.messages.append(
         {
             "role": "user",
@@ -599,21 +589,67 @@ def submit_question(question):
         }
     )
 
-    # Generate a temporary answer.
-    answer = generate_answer(question)
+    # Only one question is processed at a time. This is sufficient for a local
+    # Streamlit prototype and prevents duplicate model calls during reruns.
+    st.session_state.pending_question = question
 
-    # Save the assistant's answer.
-    st.session_state.messages.append(
-        {
-            "role": "assistant",
-            "content": answer,
-        }
-    )
+
+def generate_assistant_message(question):
+    """Run the RAG pipeline and return one UI-ready assistant message.
+
+    Parameters:
+        question (str): The question currently waiting for an answer.
+
+    Returns:
+        dict: Answer text, supporting citations and refusal state.
+    """
+
+    try:
+        # The pipeline returns a dictionary containing generated answer text and
+        # the exact retrieved passages used as its grounding context.
+        language = detect_language(question)
+
+        if language == "English":
+            result = answer_question_with_sources(question)
+            answer = result["answer"]
+            sources = result["sources"]
+        else:
+            answer = process_multilingual_question(question)
+            sources = []
+
+        # A refusal means the retrieved passages were not sufficient to support
+        # an answer. Do not present those passages as citations, because doing so
+        # could incorrectly imply that they support the refusal or the question.
+        refused = answer.lower().startswith("i do not have enough information")
+        if refused:
+            sources = []
+    except Exception as error:
+        # Keep the interface usable if Ollama is stopped, a model is missing or
+        # another local pipeline dependency fails. The technical error is kept
+        # in the message during development so the team can diagnose it.
+        answer = (
+            "The answer service is currently unavailable. Confirm that Ollama "
+            "is running and that the llama3.2 model is installed.\n\n"
+            f"Development details: {error}"
+        )
+        sources = []
+        refused = False
+
+    return {
+        "role": "assistant",
+        "content": answer,
+        "sources": sources,
+        "refused": refused,
+    }
 
 
 # Create chat history when the application opens.
 if "messages" not in st.session_state:
     st.session_state.messages = []
+
+# Track a submitted question separately while the answer is being generated.
+if "pending_question" not in st.session_state:
+    st.session_state.pending_question = None
 
 
 # Build the sidebar.
@@ -674,6 +710,7 @@ with st.sidebar:
     # Clear the complete conversation.
     if st.button("Clear conversation", use_container_width=True):
         st.session_state.messages = []
+        st.session_state.pending_question = None
         st.rerun()
 
     st.caption("Group 14 · WIL Project")
@@ -790,32 +827,34 @@ quick_one, quick_two, quick_three = st.columns(3)
 
 with quick_one:
     if st.button(
-        "Student visa documents",
+        "ETA stay length",
         use_container_width=True,
     ):
-        submit_question(
-            "What documents may be required for an Australian student visa?"
+        queue_question(
+            "How long can an Electronic Travel Authority holder stay during each visit?"
         )
         st.rerun()
 
 
 with quick_two:
     if st.button(
-        "Visa conditions",
+        "Visitor visa totals",
         use_container_width=True,
     ):
-        submit_question(
-            "Where can I check the conditions attached to my Australian visa?"
+        queue_question(
+            "How many visitor visas were granted in total in 2025-26 to 30 June 2026?"
         )
         st.rerun()
 
 
 with quick_three:
     if st.button(
-        "Official assistance",
+        "Travel documents",
         use_container_width=True,
     ):
-        submit_question("Where can I find official help with an Australian visa?")
+        queue_question(
+            "What travel document must all arriving and departing passengers have?"
+        )
         st.rerun()
 
 
@@ -849,10 +888,57 @@ if not st.session_state.messages:
         """)
 
 
-# Display all saved conversation messages.
+# Display all saved conversation messages and any citations attached to them.
 for message in st.session_state.messages:
     with st.chat_message(message["role"]):
         st.write(message["content"])
+
+        # Explain a refusal without displaying irrelevant passages as evidence.
+        if message.get("refused", False):
+            st.caption(
+                "No citation is shown because the retrieved passages did not "
+                "provide enough evidence to support an answer."
+            )
+
+        # Only assistant messages created by the integrated pipeline contain
+        # source records. The get() call also supports older session messages.
+        sources = message.get("sources", [])
+        if sources:
+            # An expander keeps long source passages available for verification
+            # without overwhelming the main conversational response.
+            with st.expander(f"View {len(sources)} source citation(s)"):
+                for position, source in enumerate(sources, start=1):
+                    passage_id = source["passage_id"]
+                    similarity = source["similarity"]
+
+                    # The collection provides passage IDs and text but no URLs.
+                    # Displaying that real metadata avoids inventing web links.
+                    st.markdown(
+                        f"**Source {position}: Passage `{passage_id}`** "
+                        f"· relevance `{similarity:.3f}`"
+                    )
+                    st.write(source["passage"])
+
+                    # Separate multiple citations for easier visual scanning.
+                    if position < len(sources):
+                        st.divider()
+
+
+# Generate a queued answer only after the user's message has been rendered.
+if st.session_state.pending_question:
+    pending_question = st.session_state.pending_question
+
+    with st.chat_message("assistant"):
+        # This visible status replaces the previous appearance that the page had
+        # frozen while Ollama loaded the model and generated its response.
+        with st.spinner("Searching the knowledge base and generating an answer..."):
+            assistant_message = generate_assistant_message(pending_question)
+
+    # Save the completed response, clear the queue and rerun once to render the
+    # normal answer/citation layout used by the conversation-history loop above.
+    st.session_state.messages.append(assistant_message)
+    st.session_state.pending_question = None
+    st.rerun()
 
 
 # Create the main question input.
@@ -861,7 +947,7 @@ question = st.chat_input("Ask a question about Australian visa information...")
 
 # Process a submitted question.
 if question:
-    submit_question(question)
+    queue_question(question)
     st.rerun()
 
 
