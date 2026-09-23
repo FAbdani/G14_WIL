@@ -203,8 +203,10 @@ def select_best_passage(
 
     system_prompt = (
         "You are a passage selection system. "
-        "Choose the ONE passage that most directly "
+        "Choose the ONE passage that most directly and specifically "
         "answers the user's question. "
+        "Prefer passages containing the exact type of information requested, "
+        "such as a duration, number, date, requirement, or condition. "
         "Do not answer the question. "
         "Return only one passage ID."
     )
@@ -223,6 +225,11 @@ Rules:
 2. Do not explain your decision.
 3. Return ONLY one passage ID.
 4. The passage ID must be one of the IDs below.
+5. Prefer the passage that contains the specific detail requested
+   by the question, such as a number, duration, requirement,
+   date, or condition.
+6. Do not choose a general passage if another passage contains
+   a more specific answer to the question.
 
 Question:
 {question}
@@ -340,6 +347,34 @@ def translate_question_to_english(
         source_lang=source_lang,
         target_lang=ENGLISH_LANG,
     )
+
+def refine_english_question(question):
+    system_prompt = (
+        "Rewrite the question into clear natural English "
+        "without changing its meaning. "
+        "Preserve whether the question asks for a duration, number, "
+        "date, requirement, or condition."
+    )
+
+    response = ollama.chat(
+        model=GENERATOR_MODEL_NAME,
+        messages=[
+            {
+                "role": "system",
+                "content": system_prompt,
+            },
+            {
+                "role": "user",
+                "content": question,
+            },
+        ],
+        options={
+            "temperature": 0,
+            "num_predict": 60,
+        },
+    )
+
+    return response["message"]["content"].strip()
 
 
 # ============================================================
@@ -557,6 +592,17 @@ def process_multilingual_question(question):
         question
     )
 
+    print("\n==============================")
+    print("ORIGINAL QUESTION:", question)
+
+    print("\nTOP RETRIEVED PASSAGES:")
+    for i, item in enumerate(retrieved[:5], 1):
+        print(f"\n{i}. ID: {item['passage_id']}")
+        print(f"Score: {item['score']:.4f}")
+        print("Passage:", item["passage"][:500])
+
+    print("==============================\n")
+
     # Step 2 - Translate question to English if needed
     if lang_code == ENGLISH_LANG:
         english_question = question
@@ -566,8 +612,17 @@ def process_multilingual_question(question):
             lang_code,
         )
 
+    # Refine translated question into clearer English
+    if lang_code != ENGLISH_LANG:
+        english_question = refine_english_question(
+            english_question
+        )
+
     # Step 3 - Select best passage using English question
-    selected_passage = retrieved[0]
+    selected_passage = select_best_passage(
+        english_question,
+        retrieved,
+    )
 
     # Step 4 - Generate grounded English answer
     english_answer, _ = generate_answer(
