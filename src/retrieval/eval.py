@@ -2,7 +2,7 @@ from ranx import Qrels, Run, evaluate
 import pandas as pd
 import numpy as np
 
-pd.set_option('future.infer_string', False)
+# pd.set_option('future.infer_string', False)
 
 # Adapted from the Walert retrieval evaluation for our project dataset.
 # Walert splits topics into known/inferred sets and compares multiple runs,
