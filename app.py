@@ -1,5 +1,11 @@
 # Import Streamlit to build the browser-based interface.
 import streamlit as st
+import asyncio
+import os
+import tempfile
+
+import edge_tts
+from faster_whisper import WhisperModel
 from src.retrieval.multilingual import (
     process_multilingual_question,
     detect_language,
@@ -564,6 +570,87 @@ st.html("""
     </style>
     """)
 
+
+# Load Whisper once and keep it available between Streamlit reruns.
+# The base model is accurate enough for this prototype and can run on a CPU.
+@st.cache_resource
+def load_whisper_model():
+    return WhisperModel(
+        "base",
+        device="cpu",
+        compute_type="int8",
+    )
+
+
+def transcribe_voice_question(audio_recording):
+    """Convert a question recorded in the browser into text."""
+
+    audio_path = None
+
+    try:
+        # Whisper needs a file path, so save the browser recording temporarily.
+        with tempfile.NamedTemporaryFile(
+            delete=False,
+            suffix=".wav",
+        ) as temporary_audio:
+            temporary_audio.write(audio_recording.getvalue())
+            audio_path = temporary_audio.name
+
+        model = load_whisper_model()
+
+        segments, _ = model.transcribe(
+            audio_path,
+            language="en",
+            beam_size=5,
+        )
+
+        # Whisper can return several segments, so join them into one question.
+        transcribed_text = " ".join(
+            segment.text.strip()
+            for segment in segments
+            if segment.text.strip()
+        )
+
+        return transcribed_text.strip()
+
+    finally:
+        # The recording is only required during transcription.
+        if audio_path and os.path.exists(audio_path):
+            os.remove(audio_path)
+
+
+async def create_answer_audio(answer):
+    """Convert an answer into an MP3 file and return its bytes."""
+
+    audio_path = None
+
+    try:
+        with tempfile.NamedTemporaryFile(
+            delete=False,
+            suffix=".mp3",
+        ) as temporary_audio:
+            audio_path = temporary_audio.name
+
+        speech = edge_tts.Communicate(
+            text=answer,
+            voice="en-AU-NatashaNeural",
+        )
+        await speech.save(audio_path)
+
+        with open(audio_path, "rb") as audio_file:
+            return audio_file.read()
+
+    finally:
+        # Remove the temporary MP3 after Streamlit has received the audio bytes.
+        if audio_path and os.path.exists(audio_path):
+            os.remove(audio_path)
+
+
+def generate_answer_audio(answer):
+    """Run the asynchronous Edge TTS function from normal Streamlit code."""
+
+    return asyncio.run(create_answer_audio(answer))
+
 def queue_question(question):
     """
     Save a question immediately and queue it for answer generation.
@@ -607,7 +694,7 @@ def generate_assistant_message(question):
     try:
         # The pipeline returns a dictionary containing generated answer text and
         # the exact retrieved passages used as its grounding context.
-        language = detect_language(question)
+        language, language_code = detect_language(question)
 
         if language == "English":
             result = answer_question_with_sources(question)
@@ -623,6 +710,16 @@ def generate_assistant_message(question):
         refused = answer.lower().startswith("i do not have enough information")
         if refused:
             sources = []
+
+        # Create spoken audio for a successfully generated answer. If TTS is
+        # unavailable, the written answer should still be displayed normally.
+        answer_audio = None
+        # Only read English answers aloud because the voice feature is English-only
+        if not refused and language == "English":
+            try:
+                answer_audio = generate_answer_audio(answer)
+            except Exception:
+                answer_audio = None
     except Exception as error:
         # Keep the interface usable if Ollama is stopped, a model is missing or
         # another local pipeline dependency fails. The technical error is kept
@@ -634,12 +731,14 @@ def generate_assistant_message(question):
         )
         sources = []
         refused = False
+        answer_audio = None
 
     return {
         "role": "assistant",
         "content": answer,
         "sources": sources,
         "refused": refused,
+        "audio": answer_audio,
     }
 
 
@@ -893,6 +992,11 @@ for message in st.session_state.messages:
     with st.chat_message(message["role"]):
         st.write(message["content"])
 
+        # Play the spoken version underneath an assistant's written answer.
+        answer_audio = message.get("audio")
+        if message["role"] == "assistant" and answer_audio:
+            st.audio(answer_audio, format="audio/mp3")
+
         # Explain a refusal without displaying irrelevant passages as evidence.
         if message.get("refused", False):
             st.caption(
@@ -908,15 +1012,7 @@ for message in st.session_state.messages:
             # without overwhelming the main conversational response.
             with st.expander(f"View {len(sources)} source citation(s)"):
                 for position, source in enumerate(sources, start=1):
-                    passage_id = source["passage_id"]
-                    similarity = source["similarity"]
-
-                    # The collection provides passage IDs and text but no URLs.
-                    # Displaying that real metadata avoids inventing web links.
-                    st.markdown(
-                        f"**Source {position}: Passage `{passage_id}`** "
-                        f"· relevance `{similarity:.3f}`"
-                    )
+                    st.markdown(f"**Source {position}**")
                     st.write(source["passage"])
 
                     # Separate multiple citations for easier visual scanning.
@@ -941,14 +1037,44 @@ if st.session_state.pending_question:
     st.rerun()
 
 
-# Create the main question input.
-question = st.chat_input("Ask a question about Australian visa information...")
+# Keep voice and typing together in the same bottom input bar.
+# Streamlit adds a microphone button beside the normal send button.
+question_input = st.chat_input(
+    "Ask a question about Australian visa information...",
+    accept_audio=True,
+    audio_sample_rate=16000,
+    key="visa_question_input",
+)
 
 
-# Process a submitted question.
-if question:
-    queue_question(question)
-    st.rerun()
+# Process either a typed question or a microphone recording.
+if question_input:
+    typed_question = question_input.text.strip()
+    voice_recording = question_input.audio
+
+    if typed_question:
+        queue_question(typed_question)
+        st.rerun()
+
+    elif voice_recording:
+        try:
+            with st.spinner("Transcribing your question..."):
+                transcribed_question = transcribe_voice_question(
+                    voice_recording
+                )
+
+            if transcribed_question:
+                queue_question(transcribed_question)
+                st.rerun()
+            else:
+                st.warning(
+                    "No speech was detected. Please record the question again."
+                )
+
+        except Exception as error:
+            st.error(
+                f"The recording could not be transcribed: {error}"
+            )
 
 
 # Display the safety disclaimer.
