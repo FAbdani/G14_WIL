@@ -106,3 +106,6 @@ zipp==3.17.0
 zlib-state==0.1.6
 streamlit
 ollama
+faster-whisper
+edge-tts
+sounddevice
