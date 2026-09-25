@@ -29,7 +29,12 @@ topics_df = pd.read_csv(TOPICS)
 vectorizer = TfidfVectorizer(stop_words = 'english', ngram_range = (1, 2))
 passage_vectors = vectorizer.fit_transform(collection_df['passage'])
 
-# Measure how similar the question is to every passage.
+
+def retrieve_sources(question, top_k=3):
+    """Retrieve the top_k most relevant passages, along with their similarity scores."""
+    
+    question_vector = vectorizer.transform([question])
+    # Measure how similar the question is to every passage.
     similarities = cosine_similarity(question_vector, passage_vectors).flatten()
 
     # Sort passage positions from highest to lowest similarity.

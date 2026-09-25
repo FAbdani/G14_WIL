@@ -1,99 +1,51 @@
 question_id,question,generated_answer
-VS01Q01,How long can an Electronic Travel Authority holder stay during each visit?,"Based on Document 1, an Electronic Travel Authority (ETA) holder can stay in Australia for up to 3 months on each visit within a 12-month period from the date of grant."
-VS02Q01,What are the stay conditions for the Frequent Traveller stream?,"I can answer the question based on Document 1.
-
-For the Frequent Traveller stream, the stay conditions are as follows:
-
-* Maximum stay on each visit: 3 months
-* Total stay from date of grant: Up to 10 years
-* Maximum stay in Australia in any period of 24 months: 12 months"
-VS03Q01,How many visitor visas were granted in total in 2025-26 to 30 June 2026?,"According to Document 1, the Grand Total of visitor visas granted in 2025-26 to 30 June 2026 was 5,156,543."
-VS04Q01,How many Tourist stream visitor visas were granted in 2025-26 to 30 June 2026?,"Based on Document 2, the number of Tourist Stream visitor visas granted in 2025-26 to 30 June 2026 was 4,726,509."
-VS05Q01,How many Business stream visitor visas were granted in 2025-26 to 30 June 2026?,"I can answer the question based on the relevant documents.
-
-According to Document 2, the total number of Business stream visitor visas granted in 2025-26 to 30 June 2026 was 430,034."
-VS06Q01,How many Sponsored Family stream visitor visas were granted in 2025-26 to 30 June 2026?,"I do not have enough information to answer this question. 
-
-There is no document that specifically provides information about Sponsored Family stream visitor visas."
-VS07Q01,How many student visa applications were lodged in total in 2025-26 to 30 June 2026?,"Document 1 states that the total number of student visa applications lodged in 2025-26 to 30 June 2026 was 408,385."
+VS01Q01,How long can an Electronic Travel Authority holder stay during each visit?,An Electronic Travel Authority holder can stay in Australia for up to 3 months on each visit within a 12 month period from the date of grant.
+VS02Q01,What are the stay conditions for the Frequent Traveller stream?,"The Frequent Traveller stream stay conditions are: a maximum of three months stay on each visit to Australia, and applicants must not stay in Australia for more than 12 months in any period of 24 months."
+VS03Q01,How many visitor visas were granted in total in 2025-26 to 30 June 2026?,"The Grand Total of visitor visas granted in 2025-26 to 30 June 2026 was 5,156,543."
+VS04Q01,How many Tourist stream visitor visas were granted in 2025-26 to 30 June 2026?,"4,726,509."
+VS05Q01,How many Business stream visitor visas were granted in 2025-26 to 30 June 2026?,"The Business stream visitor visas granted in 2025-26 to 30 June 2026 were 430,034."
+VS06Q01,How many Sponsored Family stream visitor visas were granted in 2025-26 to 30 June 2026?,"32,840."
+VS07Q01,How many student visa applications were lodged in total in 2025-26 to 30 June 2026?,I do not have enough information to answer this question.
 VS08Q01,How many primary Higher Education student visa applications were lodged in 2025-26 to 30 June 2026?,"The number of primary Higher Education student visa applications lodged in 2025-26 to 30 June 2026 was 227,899."
-VS09Q01,How many student visas were granted in total in 2025-26 to 30 June 2026?,"Based on Document 1, the total number of student visas granted in 2025-26 to 30 June 2026 was 337,527."
-VS10Q01,How many primary Higher Education student visas were granted in 2025-26 to 30 June 2026?,"Document 1 states that the number of primary Higher Education student visas granted in 2025-26 to 30 June 2026 was 195,607."
-VS11Q01,How many Visitor visa holders were in Australia on 30 June 2026?,"The number of Visitor visa holders in Australia on 30 June 2026 was 296,625 (Document 1)."
+VS09Q01,How many student visas were granted in total in 2025-26 to 30 June 2026?,I do not have enough information to answer this question.
+VS10Q01,How many primary Higher Education student visas were granted in 2025-26 to 30 June 2026?,I do not have enough information to answer this question.
+VS11Q01,How many Visitor visa holders were in Australia on 30 June 2026?,"296,625"
 VS12Q01,How many Student visa holders were in Australia on 30 June 2026?,"The number of Student visa holders in Australia on 30 June 2026 was 528,801."
-TR01Q01,What travel document must all arriving and departing passengers have?,"Based on Document 1, the travel document that all arriving and departing passengers must have is a valid passport, or another accepted travel document."
-TR02Q01,What must arriving passengers complete when entering Australia?,According to Document 2: Passengers arriving in Australia are required to fill out an Incoming Passenger Card as part of the arrival process.
-TR03Q01,What visa requirement applies to non-citizens entering Australia?,"According to Document 2, the visa requirement that applies to non-citizens entering Australia is to hold a valid visa at the time of entry."
-TR04Q01,Who is eligible to use SmartGate on arrival at Australian airports?,"Based on Document 1, the eligible individuals to use SmartGate on arrival at Australian airports are:
-
-- Travellers who hold an ePassport
-- Travellers who are at least 7 years old
-- Travellers who are taller than 1.1 metres."
-TR05Q01,What conditions apply to using departure SmartGates?,"Based on Document 1, the conditions that apply to using departure SmartGates are:
-
-* The traveller must be carrying a valid machine-readable passport.
-* The traveller must be able to operate the gate independently, without an age or height restriction.
-
-I do not have enough information to answer the question, as there are no conditions mentioned regarding the traveller's ability to operate the gate independently in Document 1."
-TR06Q01,What should travellers do with expensive items like cameras or laptops if they intend to bring them back into Australia?,"Based on Document 1, if travellers intend to bring expensive items like cameras or laptops back into Australia, they should register the items with Border Force before departure."
-TR07Q01,What form is used to register expensive items taken out of Australia?,"Based on Document 1, the form used to register expensive items taken out of Australia is the B263 'Goods exported in passenger baggage' form."
-TR08Q01,What must travellers do with duty-free goods when leaving Australia?,"Based on Document 1, travellers must carry duty-free goods out of the country and show them for inspection at the point of departure. Additionally, these goods may need to be declared when the traveller returns."
-TR09Q01,Does Border Force stamp Australian passports as standard practice?,"Based on Document 1, the answer is:
-
-No, Border Force officers do not routinely stamp Australian passports as standard practice. However, a traveller can ask an officer to provide a stamp if they need evidence of travel."
-TR10Q01,Under what circumstance might a traveller need their fingerprints checked?,"Based on the relevant documents, a traveller may need their fingerprints checked during a border biometric check, as stated in Document 3. At least four fingerprints are scanned during this process, and the scans are not kept and are deleted once the check is finished."
-TR11Q01,"How many fingerprints are scanned during a biometric check, and are the scans kept afterwards?",At least four fingerprints are scanned during a border biometric check. The scans are not kept and are deleted once the check is finished.
-TR12Q01,When are passengers permitted to use cameras or mobile phones at the border?,"Passengers are permitted to use cameras or mobile phones at the border, except while undergoing a clearance process or when a Border Force officer has directed them not to."
-TR13Q01,Under what law can officers direct travellers not to use cameras or phones in a customs controlled area?,"Based on Document 1, under the Customs Act 1901, officers have the power to direct travellers not to use cameras, recording equipment or mobile phones in a customs controlled area, where doing so could interfere with their duties or pose a border risk."
-TR14Q01,What powers do Border Force officers have regarding baggage examination and questioning of travellers?,"Based on Document 1, Border Force officers have the power to examine travellers' baggage and question them to detect breaches of customs, quarantine, and other Commonwealth laws, including bringing in or taking out prohibited goods."
-TR15Q01,How does the Department decide which passengers to examine or search?,"Based on Document 1, the Department decides which passengers to examine or search by analysing passenger details sent by airlines ahead of a flight's arrival, which flag possible risk factors, alongside information drawn from airline reservation systems."
-TR16Q01,What is advance passenger processing?,"Based on Document 2, advance passenger processing (APP) refers to the practice of airlines sending passenger details to the relevant authorities ahead of a flight's arrival, which are then analysed to flag possible risk factors, alongside information drawn from airline reservation systems."
-TR17Q01,Under what section of the Customs Act do Border Force officers exercise their questioning powers?,"Based on Document 2, Border Force officers exercise their questioning powers under Section 195 of the Customs Act 1901, covering matters such as dutiable, excisable or prohibited goods, immigration clearance, wildlife specimens, and currency."
-TR18Q01,What kinds of questions might a Border Force officer ask a traveller about their baggage?,"Based on Document 4, Border Force officers may ask travellers about their baggage to detect breaches of customs, quarantine, and other Commonwealth laws, including bringing in or taking out prohibited goods."
-TR19Q01,What can happen if a traveller refuses to answer an officer's questions?,"According to Document 1, if a traveller refuses to answer an officer's questions, they may have their goods physically examined as a result, which can delay their clearance through the border."
-TR20Q01,What methods might a Border Force officer use to examine a traveller's baggage?,"Based on Document 2, a Border Force officer might use the following methods to examine a traveller's baggage:
-
-* Examining the baggage to detect breaches of customs, quarantine and other Commonwealth laws
-* Questioning the traveller to gather more information about the contents of their baggage
-* Checking for prohibited goods
-
-These methods are used to detect breaches of laws and regulations, and to ensure compliance with relevant legislation."
-TR21Q01,Under what circumstances may Border Force officers copy a traveller's documents?,"I can answer the question based on the provided documents.
-
-Border Force officers may copy a traveller's documents in order to detect breaches of customs, quarantine, and other Commonwealth laws. This is supported by Document 3, which states that Border Force officers have legislative powers to examine travellers' baggage and question them to detect breaches of customs, quarantine and other Commonwealth laws."
-TR22Q01,Does the definition of 'document' used for border examinations include information stored on phones and laptops?,"The definition of 'document' used for border examinations, as stated in Document 1, includes information stored on mobile phones, laptops, personal electronic recorders, and computers. Therefore, the answer is yes, the definition does include information stored on phones and laptops."
-TR23Q01,How long may an electronic device be retained for forensic examination at the border?,"Based on Document 1, the answer is:
-
-An electronic device may be retained for forensic examination at the border for as long as is reasonably necessary to complete the examination, and longer if it is found to contain prohibited content."
-TR24Q01,What factors does Border Force consider when prioritising an electronic device examination?,"Based on Document 2, when deciding how quickly to examine a seized device, Border Force takes into account the traveller's confirmed travel plans, the effect on their employment, and their personal circumstances."
-TR25Q01,Where should travellers look to find out what items can be brought into or out of Australia?,"To find out what items can be brought into or out of Australia, travellers should look at the Border Force 'Can you bring it in?' section of their website."
-TR26Q01,"What is the Visitor visa (subclass 600) generally used for, and how long can it last?","Based on the retrieved documents, the Visitor visa (subclass 600) is generally used for tourism, business visits, or visiting family. The length of the visa can vary depending on the stream, with the Frequent Traveller stream allowing a maximum of three months stay on each visit and enabling travel for up to 10 years from the date of grant, but with a cap of 12 months stay in any 24-month period.
-
-In terms of duration, the length of the Visitor visa (subclass 600) can be 3, 6, or 12 months."
-TR27Q01,Does the Visitor visa's Business Visitor stream allow the holder to work in Australia?,"According to Document 1, the Business Visitor stream of the Visitor visa does not allow the holder to work in Australia."
-TR28Q01,"What are the validity period, stay length and cost of an eVisitor visa (subclass 651)?","Based on Document 1, the relevant information is as follows:
-
-- Validity period: Not specified (no expiration date mentioned)
-- Stay length: Each visit is limited to 3 months.
-- Cost: There is no charge to apply."
-TR29Q01,What is the Student visa (subclass 500) for?,"Based on the provided documents, the answer to the question ""What is the Student visa (subclass 500) for?"" is:
-
-The Student visa (subclass 500) allows a person to come to Australia to study full-time at a recognised educational institution."
-TR30Q01,What must Student visa applicants demonstrate under the Genuine Student requirement?,"Based on Document 1, applicants for a Student visa lodged on or after 23 March 2024 must satisfy the Genuine Student (GS) criterion, or the GS dependent criterion for secondary applicants, in order for the visa to be granted."
-TR31Q01,What is the purpose of the Genuine Student requirement?,"Based on Document 1, the purpose of the Genuine Student requirement is to identify students who, after completing their studies in Australia, may develop skills the country needs and could later apply for permanent residence."
-TR32Q01,Who is the Working Holiday visa (subclass 417) designed for?,"Based on the relevant documents, the Working Holiday visa (subclass 417) is designed for young adults who want to take an extended holiday in Australia and work here to help fund it."
+TR01Q01,What travel document must all arriving and departing passengers have?,"A valid passport, or another accepted travel document."
+TR02Q01,What must arriving passengers complete when entering Australia?,Passengers arriving in Australia are required to fill out an Incoming Passenger Card.
+TR03Q01,What visa requirement applies to non-citizens entering Australia?,The visa requirement that applies to non-citizens entering Australia is to hold a valid visa at the time of entry.
+TR04Q01,Who is eligible to use SmartGate on arrival at Australian airports?,Travellers who are at least 7 years old and hold an ePassport are eligible to use SmartGate on arrival at Australian airports.
+TR05Q01,What conditions apply to using departure SmartGates?,Departure SmartGates can be used by any traveller carrying a valid machine-readable passport.
+TR06Q01,What should travellers do with expensive items like cameras or laptops if they intend to bring them back into Australia?,"Travellers taking valuable items such as computers, cameras or video cameras out of Australia, who plan to bring them back in, are advised to register the items with Border Force before departure."
+TR07Q01,What form is used to register expensive items taken out of Australia?,The B263 'Goods exported in passenger baggage' form is used to register high-value items leaving Australia.
+TR08Q01,What must travellers do with duty-free goods when leaving Australia?,"Goods bought duty or tax free within Australia must be carried out of the country and shown for inspection at the point of departure, and may also need to be declared when the traveller returns."
+TR09Q01,Does Border Force stamp Australian passports as standard practice?,Border Force does not routinely stamp Australian passports.
+TR10Q01,Under what circumstance might a traveller need their fingerprints checked?,"A traveller may need their fingerprints checked when arriving in Australia, as part of the border biometric check, and the documents do not specify any other circumstance."
+TR11Q01,"How many fingerprints are scanned during a biometric check, and are the scans kept afterwards?",At least four fingerprints are scanned during a biometric check. The scans are not kept and are deleted once the check is finished.
+TR12Q01,When are passengers permitted to use cameras or mobile phones at the border?,"Passengers are generally permitted to use cameras or mobile phones at the border, except while undergoing a clearance process."
+TR13Q01,Under what law can officers direct travellers not to use cameras or phones in a customs controlled area?,"The Customs Act 1901 gives officers at international airports the power to direct someone in a customs controlled area to stop using cameras, recording equipment or mobile phones, where doing so could interfere with their duties or pose a border risk."
+TR14Q01,What powers do Border Force officers have regarding baggage examination and questioning of travellers?,"Border Force officers have legislative powers to examine travellers' baggage and question them to detect breaches of customs, quarantine and other Commonwealth laws, including bringing in or taking out prohibited goods."
+TR15Q01,How does the Department decide which passengers to examine or search?,"Passengers arriving in Australia are required to fill out an Incoming Passenger Card, which is used by the Department to flag possible risk factors. The Department also uses information from airline reservation systems and passenger details sent by airlines ahead of a flight's arrival."
+TR16Q01,What is advance passenger processing?,"Advance passenger processing (APP) is the analysis of passenger data by airlines before a flight arrives, to flag potential risk factors, alongside information from airline reservation systems."
+TR17Q01,Under what section of the Customs Act do Border Force officers exercise their questioning powers?,"According to Document 2, Border Force officers exercise their questioning powers under Section 195 of the Customs Act 1901."
+TR18Q01,What kinds of questions might a Border Force officer ask a traveller about their baggage?,"A Border Force officer might ask a traveller about their baggage in relation to customs regulations, items prohibited from entry, the quantity and value of goods, and whether any goods are missing or have been damaged during travel, with limits typically applied to the quantity or value of goods, and with some items prohibited entirely."
+TR19Q01,What can happen if a traveller refuses to answer an officer's questions?,"If a traveller refuses to answer an officer's questions, their goods may be physically examined as a result, which can delay their clearance through the border."
+TR20Q01,What methods might a Border Force officer use to examine a traveller's baggage?,"Border Force officers may use visual inspections of baggage, questioning the traveller, and potentially using technology such as X-ray machines to examine baggage."
+TR21Q01,Under what circumstances may Border Force officers copy a traveller's documents?,"Border Force officers may copy a traveller's documents if the traveller consents to the copying, or if the officer believes it is necessary to comply with customs, quarantine or other Commonwealth laws, or for the detection of breaches of those laws."
+TR22Q01,Does the definition of 'document' used for border examinations include information stored on phones and laptops?,Document 1 includes information stored on phones and laptops as part of the definition of 'document' used for border examinations.
+TR23Q01,How long may an electronic device be retained for forensic examination at the border?,A device held for forensic examination under Section 186 of the Customs Act can be retained for as long as is reasonably necessary to complete the examination.
+TR24Q01,What factors does Border Force consider when prioritising an electronic device examination?,"Border Force considers a traveller's confirmed travel plans, the effect on their employment, and their personal circumstances when prioritising an electronic device examination."
+TR25Q01,Where should travellers look to find out what items can be brought into or out of Australia?,Travellers can find information on what items can be brought into or out of Australia by checking the Border Force 'Can you bring it in?' section of their website.
+TR26Q01,"What is the Visitor visa (subclass 600) generally used for, and how long can it last?","The Visitor visa (subclass 600) is generally used for tourists, business visitors, or visiting family, and its duration can be 3, 6, or 12 months."
+TR27Q01,Does the Visitor visa's Business Visitor stream allow the holder to work in Australia?,The Visitor visa's Business Visitor stream does not allow the holder to work in Australia.
+TR28Q01,"What are the validity period, stay length and cost of an eVisitor visa (subclass 651)?","The validity period of an eVisitor visa (subclass 651) is 12 months. The stay length is limited to 3 months per visit, and there is no charge to apply."
+TR29Q01,What is the Student visa (subclass 500) for?,The Student visa (subclass 500) is for studying full-time at a recognised educational institution.
+TR30Q01,What must Student visa applicants demonstrate under the Genuine Student requirement?,Applicants for a Student visa lodged on or after 23 March 2024 must demonstrate that they intend to pursue a course of study in Australia and not engage in paid employment or business activities.
+TR31Q01,What is the purpose of the Genuine Student requirement?,The Genuine Student requirement is to identify students who may develop skills Australia needs and could apply for permanent residence later.
+TR32Q01,Who is the Working Holiday visa (subclass 417) designed for?,"The Working Holiday visa (subclass 417) is designed for people aged 18 to 30 years old, except for UK passport holders who can apply between 18 and 35 years old."
 TR33Q01,What is the standard age range for a first Working Holiday visa (subclass 417)?,The standard age range for a first Working Holiday visa (subclass 417) is 18 to 30 years old.
-TR34Q01,What special arrangements apply to UK passport holders applying for a Working Holiday visa (subclass 417)?,"Based on Document 1, special arrangements that apply to UK passport holders applying for a Working Holiday visa (subclass 417) include:
-
-* The ability to apply for a Working Holiday visa between the ages of 18 and 35 inclusive, starting from 1 July 2023.
-* The ability to be granted up to three separate Working Holiday visas without needing to meet any specified work requirements, starting from 1 July 2024.
-
-Note that these arrangements are specific to UK passport holders and may not apply to passport holders from other countries."
-TR35Q01,How long can a Working Holiday (417) or Work and Holiday (462) visa holder work for a single employer?,"According to Document 1, a Working Holiday (subclass 417) or Work and Holiday (subclass 462) visa holder is limited to a maximum of six months' work with any one employer, unless an exemption applies or permission is granted to work longer."
-TR36Q01,How much study or training can a Working Holiday Maker visa holder undertake during their stay?,"I can answer this question based on Document 1.
-
-According to Document 1, a Working Holiday Maker visa holder is limited to a maximum of four months of study or training during their stay in Australia, as study is meant to be incidental rather than the main purpose of the visit."
-TR37Q01,Who is the first Work and Holiday visa (subclass 462) designed for?,"Based on Document 1, the first Work and Holiday visa (subclass 462) is designed for people aged 18 to 30 who want an extended holiday in Australia and plan to work here to help fund it."
-TR38Q01,How long is it recommended that a traveller's passport remain valid when applying for a Visitor visa?,"I can answer the question based on Document 1.
-
-According to Document 1, it is recommended that a traveller's passport remain valid for at least 6 months when applying for a Visitor visa."
+TR34Q01,What special arrangements apply to UK passport holders applying for a Working Holiday visa (subclass 417)?,"UK passport holders applying for a Working Holiday visa (subclass 417) can be granted up to three separate visas without needing to meet any specified work requirements since 1 July 2024, and are limited to the age range of 18 to 35 inclusive since 1 July 2023."
+TR35Q01,How long can a Working Holiday (417) or Work and Holiday (462) visa holder work for a single employer?,The maximum amount of time a Working Holiday (417) or Work and Holiday (462) visa holder can work for a single employer is six months.
+TR36Q01,How much study or training can a Working Holiday Maker visa holder undertake during their stay?,A Working Holiday Maker visa holder can undertake a maximum of four months of study or training during their stay in Australia.
+TR37Q01,Who is the first Work and Holiday visa (subclass 462) designed for?,The first Work and Holiday visa (subclass 462) is designed for people aged 18 to 35.
+TR38Q01,How long is it recommended that a traveller's passport remain valid when applying for a Visitor visa?,The recommended duration that a traveller's passport should remain valid when applying for a Visitor visa is at least 6 months.
