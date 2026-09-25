@@ -1,14 +1,17 @@
 from ranx import Qrels, Run, evaluate
 import pandas as pd
+import numpy as np
+
+# pd.set_option('future.infer_string', False)
 
 # Adapted from the Walert retrieval evaluation for our project dataset.
 # Walert splits topics into known/inferred sets and compares multiple runs,
-# while our current milestone evaluates one BM25 baseline across all 27 questions.
+# while our current milestone evaluates one TF-IDF baseline across all questions.
 
-# Evaluate all of our project questions using the generated BM25 run
+# Evaluate all of our project questions using the generated TF-IDF run
 
 QRELS_PATH = "../../data/qrels.txt"
-RUN_PATH = "../../target/runs/rag-bm25.txt"
+RUN_PATH = "../../target/runs/rag-tfidf.txt"
 
 
 qrels_df = pd.read_csv(
@@ -16,6 +19,8 @@ qrels_df = pd.read_csv(
     sep=r"\s+",
     names=["q_id", "zero", "doc_id", "score"]
 )
+qrels_df["q_id"] = qrels_df["q_id"].to_numpy(dtype=object)
+qrels_df["doc_id"] = qrels_df["doc_id"].to_numpy(dtype=object)
 
 qrels = Qrels.from_df(
     qrels_df,
@@ -26,7 +31,7 @@ qrels = Qrels.from_df(
 
 run = Run.from_file(RUN_PATH, kind="trec")
 
-# Initial BM25 baseline evaluation using the same nDCG cutoffs as Walert
+# TF-IDF baseline evaluation using the same nDCG cutoffs as Walert
 
 results = evaluate(
     qrels,
@@ -34,5 +39,5 @@ results = evaluate(
     metrics=["ndcg@1", "ndcg@3", "ndcg@5"]
 )
 
-print("BM25 Evaluation Results")
+print("TF-IDF Evaluation Results")
 print(results)

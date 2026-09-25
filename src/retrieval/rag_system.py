@@ -26,20 +26,14 @@ collection_df = pd.read_csv(COLLECTION)
 topics_df = pd.read_csv(TOPICS)
 
 # building the tfidf search index
-vectorizer = TfidfVectorizer(stop_words = 'english')
+vectorizer = TfidfVectorizer(stop_words = 'english', ngram_range = (1, 2))
 passage_vectors = vectorizer.fit_transform(collection_df['passage'])
 
+
 def retrieve_sources(question, top_k=3):
-    """Return relevant source records for a question using TF-IDF similarity.
-
-    Each source retains its passage ID, complete passage text and similarity
-    score. Keeping this metadata is what allows the UI to cite the passages
-    that were already selected by the retrieval stage.
-    """
-
-    # Convert the question into the same vector space as the collection.
+    """Retrieve the top_k most relevant passages, along with their similarity scores."""
+    
     question_vector = vectorizer.transform([question])
-
     # Measure how similar the question is to every passage.
     similarities = cosine_similarity(question_vector, passage_vectors).flatten()
 

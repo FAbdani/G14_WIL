@@ -1,51 +1,51 @@
 question_id,question,rouge_l_f1,key_fact_match_rate
-VS01Q01,How long can an Electronic Travel Authority holder stay during each visit?,0.5455,0.6667
-VS02Q01,What are the stay conditions for the Frequent Traveller stream?,0.6906,1.0
+VS01Q01,How long can an Electronic Travel Authority holder stay during each visit?,0.3721,0.6667
+VS02Q01,What are the stay conditions for the Frequent Traveller stream?,0.32,0.75
 VS03Q01,How many visitor visas were granted in total in 2025-26 to 30 June 2026?,0.6286,1.0
-VS04Q01,How many Tourist stream visitor visas were granted in 2025-26 to 30 June 2026?,0.6364,1.0
-VS05Q01,How many Business stream visitor visas were granted in 2025-26 to 30 June 2026?,0.5306,0.0
-VS06Q01,How many Sponsored Family stream visitor visas were granted in 2025-26 to 30 June 2026?,0.65,1.0
-VS07Q01,How many student visa applications were lodged in total in 2025-26 to 30 June 2026?,0.6667,0.0
-VS08Q01,How many primary Higher Education student visa applications were lodged in 2025-26 to 30 June 2026?,0.4384,1.0
-VS09Q01,How many student visas were granted in total in 2025-26 to 30 June 2026?,0.6286,0.0
-VS10Q01,How many primary Higher Education student visas were granted in 2025-26 to 30 June 2026?,0.2623,0.0
-VS11Q01,How many Visitor visa holders were in Australia on 30 June 2026?,0.6486,1.0
-VS12Q01,How many Student visa holders were in Australia on 30 June 2026?,0.6316,1.0
-TR01Q01,What travel document must all arriving and departing passengers have?,0.5,
-TR02Q01,What must arriving passengers complete when entering Australia?,0.3636,
+VS04Q01,How many Tourist stream visitor visas were granted in 2025-26 to 30 June 2026?,0.6316,1.0
+VS05Q01,How many Business stream visitor visas were granted in 2025-26 to 30 June 2026?,0.5306,1.0
+VS06Q01,How many Sponsored Family stream visitor visas were granted in 2025-26 to 30 June 2026?,0.1905,0.0
+VS07Q01,How many student visa applications were lodged in total in 2025-26 to 30 June 2026?,0.6486,1.0
+VS08Q01,How many primary Higher Education student visa applications were lodged in 2025-26 to 30 June 2026?,0.7368,1.0
+VS09Q01,How many student visas were granted in total in 2025-26 to 30 June 2026?,0.6286,1.0
+VS10Q01,How many primary Higher Education student visas were granted in 2025-26 to 30 June 2026?,0.65,1.0
+VS11Q01,How many Visitor visa holders were in Australia on 30 June 2026?,0.5517,1.0
+VS12Q01,How many Student visa holders were in Australia on 30 June 2026?,0.6154,1.0
+TR01Q01,What travel document must all arriving and departing passengers have?,0.375,
+TR02Q01,What must arriving passengers complete when entering Australia?,0.2759,
 TR03Q01,What visa requirement applies to non-citizens entering Australia?,0.3333,
-TR04Q01,Who is eligible to use SmartGate on arrival at Australian airports?,0.2078,1.0
-TR05Q01,What conditions apply to using departure SmartGates?,0.2188,
+TR04Q01,Who is eligible to use SmartGate on arrival at Australian airports?,0.32,1.0
+TR05Q01,What conditions apply to using departure SmartGates?,0.1707,
 TR06Q01,What should travellers do with expensive items like cameras or laptops if they intend to bring them back into Australia?,0.3784,
 TR07Q01,What form is used to register expensive items taken out of Australia?,0.5,1.0
-TR08Q01,What must travellers do with duty-free goods when leaving Australia?,0.2143,
+TR08Q01,What must travellers do with duty-free goods when leaving Australia?,0.1887,
 TR09Q01,Does Border Force stamp Australian passports as standard practice?,0.3846,
-TR10Q01,Under what circumstance might a traveller need their fingerprints checked?,0.0759,
-TR11Q01,"How many fingerprints are scanned during a biometric check, and are the scans kept afterwards?",0.5366,
-TR12Q01,When are passengers permitted to use cameras or mobile phones at the border?,0.2326,
-TR13Q01,Under what law can officers direct travellers not to use cameras or phones in a customs controlled area?,0.0889,0.0
-TR14Q01,What powers do Border Force officers have regarding baggage examination and questioning of travellers?,0.3929,
-TR15Q01,How does the Department decide which passengers to examine or search?,0.0,
-TR16Q01,What is advance passenger processing?,0.0,
-TR17Q01,Under what section of the Customs Act do Border Force officers exercise their questioning powers?,0.5385,1.0
-TR18Q01,What kinds of questions might a Border Force officer ask a traveller about their baggage?,0.233,
+TR10Q01,Under what circumstance might a traveller need their fingerprints checked?,0.0667,
+TR11Q01,"How many fingerprints are scanned during a biometric check, and are the scans kept afterwards?",0.6486,
+TR12Q01,When are passengers permitted to use cameras or mobile phones at the border?,0.2381,
+TR13Q01,Under what law can officers direct travellers not to use cameras or phones in a customs controlled area?,0.1277,0.0
+TR14Q01,What powers do Border Force officers have regarding baggage examination and questioning of travellers?,0.4231,
+TR15Q01,How does the Department decide which passengers to examine or search?,0.0435,
+TR16Q01,What is advance passenger processing?,0.2143,
+TR17Q01,Under what section of the Customs Act do Border Force officers exercise their questioning powers?,0.2927,0.5
+TR18Q01,What kinds of questions might a Border Force officer ask a traveller about their baggage?,0.0741,
 TR19Q01,What can happen if a traveller refuses to answer an officer's questions?,0.3256,
-TR20Q01,What methods might a Border Force officer use to examine a traveller's baggage?,0.029,
-TR21Q01,Under what circumstances may Border Force officers copy a traveller's documents?,0.2581,
-TR22Q01,Does the definition of 'document' used for border examinations include information stored on phones and laptops?,0.3125,
-TR23Q01,How long may an electronic device be retained for forensic examination at the border?,0.2857,
-TR24Q01,What factors does Border Force consider when prioritising an electronic device examination?,0.0513,
-TR25Q01,Where should travellers look to find out what items can be brought into or out of Australia?,0.0,
-TR26Q01,"What is the Visitor visa (subclass 600) generally used for, and how long can it last?",0.4889,0.6667
-TR27Q01,Does the Visitor visa's Business Visitor stream allow the holder to work in Australia?,0.1961,
-TR28Q01,"What are the validity period, stay length and cost of an eVisitor visa (subclass 651)?",0.0784,1.0
-TR29Q01,What is the Student visa (subclass 500) for?,0.5882,
-TR30Q01,What must Student visa applicants demonstrate under the Genuine Student requirement?,0.359,
+TR20Q01,What methods might a Border Force officer use to examine a traveller's baggage?,0.0238,
+TR21Q01,Under what circumstances may Border Force officers copy a traveller's documents?,0.0988,
+TR22Q01,Does the definition of 'document' used for border examinations include information stored on phones and laptops?,0.3019,
+TR23Q01,How long may an electronic device be retained for forensic examination at the border?,0.4643,
+TR24Q01,What factors does Border Force consider when prioritising an electronic device examination?,0.3913,
+TR25Q01,Where should travellers look to find out what items can be brought into or out of Australia?,0.4286,
+TR26Q01,"What is the Visitor visa (subclass 600) generally used for, and how long can it last?",0.2453,0.6667
+TR27Q01,Does the Visitor visa's Business Visitor stream allow the holder to work in Australia?,0.1333,
+TR28Q01,"What are the validity period, stay length and cost of an eVisitor visa (subclass 651)?",0.1176,0.5
+TR29Q01,What is the Student visa (subclass 500) for?,0.24,
+TR30Q01,What must Student visa applicants demonstrate under the Genuine Student requirement?,0.4643,
 TR31Q01,What is the purpose of the Genuine Student requirement?,0.2642,
-TR32Q01,Who is the Working Holiday visa (subclass 417) designed for?,0.2593,
+TR32Q01,Who is the Working Holiday visa (subclass 417) designed for?,0.449,
 TR33Q01,What is the standard age range for a first Working Holiday visa (subclass 417)?,0.3077,1.0
-TR34Q01,What special arrangements apply to UK passport holders applying for a Working Holiday visa (subclass 417)?,0.3636,0.0
-TR35Q01,How long can a Working Holiday (417) or Work and Holiday (462) visa holder work for a single employer?,0.2807,
-TR36Q01,How much study or training can a Working Holiday Maker visa holder undertake during their stay?,0.2264,
-TR37Q01,Who is the first Work and Holiday visa (subclass 462) designed for?,0.375,1.0
-TR38Q01,How long is it recommended that a traveller's passport remain valid when applying for a Visitor visa?,0.2857,1.0
+TR34Q01,What special arrangements apply to UK passport holders applying for a Working Holiday visa (subclass 417)?,0.2222,0.5
+TR35Q01,How long can a Working Holiday (417) or Work and Holiday (462) visa holder work for a single employer?,0.4828,
+TR36Q01,How much study or training can a Working Holiday Maker visa holder undertake during their stay?,0.2353,
+TR37Q01,Who is the first Work and Holiday visa (subclass 462) designed for?,0.3462,1.0
+TR38Q01,How long is it recommended that a traveller's passport remain valid when applying for a Visitor visa?,0.1579,1.0
