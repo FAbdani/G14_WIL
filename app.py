@@ -1012,15 +1012,7 @@ for message in st.session_state.messages:
             # without overwhelming the main conversational response.
             with st.expander(f"View {len(sources)} source citation(s)"):
                 for position, source in enumerate(sources, start=1):
-                    passage_id = source["passage_id"]
-                    similarity = source["similarity"]
-
-                    # The collection provides passage IDs and text but no URLs.
-                    # Displaying that real metadata avoids inventing web links.
-                    st.markdown(
-                        f"**Source {position}: Passage `{passage_id}`** "
-                        f"· relevance `{similarity:.3f}`"
-                    )
+                    st.markdown(f"**Source {position}**")
                     st.write(source["passage"])
 
                     # Separate multiple citations for easier visual scanning.
