@@ -1,4 +1,6 @@
 walert-env/
+.venv/
+.venv-app/
 target/indexes/
 target/embeddings/
 __pycache__/
