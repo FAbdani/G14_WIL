@@ -1,0 +1,13 @@
+# App dependencies for Windows x64 and Python 3.14.
+# Install in a fresh environment; do not combine with the legacy requirements.txt.
+# Pins keep the direct dependencies consistent across team installations.
+streamlit==1.64.0
+pandas==3.0.6
+scikit-learn==1.9.1
+ollama==0.6.2
+faster-whisper==1.2.1
+edge-tts==7.2.8
+torch==2.14.0
+# Keep the current multilingual implementation on the Transformers 4 API.
+transformers==4.57.6
+sentencepiece==0.2.2
