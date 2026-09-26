@@ -1005,19 +1005,13 @@ for message in st.session_state.messages:
             )
 
         # Only assistant messages created by the integrated pipeline contain
-        # source records. The get() call also supports older session messages.
-        sources = message.get("sources", [])
-        if sources:
-            # An expander keeps long source passages available for verification
-            # without overwhelming the main conversational response.
-            with st.expander(f"View {len(sources)} source citation(s)"):
-                for position, source in enumerate(sources, start=1):
-                    st.markdown(f"**Source {position}**")
-                    st.write(source["passage"])
-
-                    # Separate multiple citations for easier visual scanning.
-                    if position < len(sources):
-                        st.divider()
+                # source records. The get() call also supports older session messages.
+            sources = message.get("sources", [])
+            if sources:
+                    top_source = sources[0]
+        
+                    with st.expander("View source citation"):
+                        st.write(top_source["passage"])
 
 
 # Generate a queued answer only after the user's message has been rendered.
