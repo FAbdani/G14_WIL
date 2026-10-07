@@ -11,3 +11,6 @@ torch==2.14.0
 # Keep the current multilingual implementation on the Transformers 4 API.
 transformers==4.57.6
 sentencepiece==0.2.2
+
+matplotlib==3.11.2
+ranx==0.3.21
